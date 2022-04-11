@@ -1,0 +1,21 @@
+work stages : 
+1. creating mock data
+2. creating components
+3. components functionality
+4. adding data to components
+5. mobile design
+6. desktop design
+   
+components: 
+HEADER {
+logo,
+navbar {restaurants , Chefs}, 
+searchBar {functionality : filter search}, 
+basket : {page : empty page, functionality : adding to basket pops up a notification }, 
+profile : {empty-page}
+}
+MAIN {searchBar{},
+ popular restaurants{}, signature dishes{}, icon meanings{}, chef of the week}
+Restaurants => restaurant page => dish page
+Chefs {not implanted}
+FOOTER {about, contact, terms}
