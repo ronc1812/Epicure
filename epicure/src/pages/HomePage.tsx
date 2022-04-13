@@ -2,6 +2,7 @@ import ChefOfTheWeek from "../components/ChefOfTheWeek";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import IconMeaning from "../components/IconMeaning";
+import Info from "../components/Info";
 import PopularRes from "../components/PopularRes";
 import SearchBar from "../components/SearchBar";
 import SignatureDish from "../components/Signature";
@@ -30,6 +31,7 @@ const HomePage = () => {
       <div>
         <ChefOfTheWeek />
       </div>
+      <Info />
       <Footer />
     </>
   );

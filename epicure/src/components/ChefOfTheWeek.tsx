@@ -13,7 +13,7 @@ const ChefOfTheWeek = () => {
       setChef(fetchChef);
     }
     getChef();
-  });
+  }, []);
   return (
     <>
       <header>CHEF OF THE WEEK:</header>

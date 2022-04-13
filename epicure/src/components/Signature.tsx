@@ -13,7 +13,7 @@ const SignatureDish = () => {
       setDishes(fetchDishes);
     }
     getDishes();
-  });
+  }, []);
   return (
     <>
       <header>SIGNATURE DISH OF :</header>

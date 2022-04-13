@@ -14,7 +14,7 @@ const PopularRes = () => {
       setPopular(restaurants);
     }
     getPopular();
-  });
+  }, []);
   const restaurantsHandler = () => {
     navigator("/restaurants");
   };
