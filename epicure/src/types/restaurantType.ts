@@ -1,15 +1,15 @@
-type restaurantType = {
+type RestaurantType = {
   name: string;
   id: number;
   chef: string;
   menu: {
-    breakfast: never[];
-    lunch: never[];
-    dinner: never[];
+    breakfast: number[];
+    lunch: number[];
+    dinner: number[];
   };
   rating: number;
   picture: string;
   openTime: number;
   closingTime: number;
 };
-export default restaurantType;
+export default RestaurantType;

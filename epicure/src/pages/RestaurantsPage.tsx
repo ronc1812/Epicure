@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import getRestaurants from "../services/getRestaurants";
 import restaurantType from "../types/restaurantType";
 const RestaurantsPage = () => {
+  const navigator = useNavigate();
   const [restaurants, setRestaurants] = useState<restaurantType[] | null>(null);
   const [all, setAll] = useState<restaurantType[] | null>(null);
   useEffect(() => {
@@ -42,7 +44,13 @@ const RestaurantsPage = () => {
         <button onClick={openHandler}>Open Now</button>
       </div>
       {restaurants?.map((restaurant) => {
-        return <img src={restaurant.picture} alt={restaurant.name} />;
+        return (
+          <img
+            src={restaurant.picture}
+            alt={restaurant.name}
+            onClick={() => navigator(`/restaurants/${restaurant.name}`)}
+          />
+        );
       })}
       <Footer />
     </>

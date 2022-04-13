@@ -2,6 +2,7 @@ import React from "react";
 import HomePage from "./pages/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RestaurantsPage from "./pages/RestaurantsPage";
+import Restaurant from "./components/Restaurant";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,14 @@ function App() {
           element={
             <>
               <RestaurantsPage />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/restaurants/:restaurant"
+          element={
+            <>
+              <Restaurant />
             </>
           }
         ></Route>
