@@ -1,4 +1,4 @@
-type Dish = {
+type DishType = {
   name: string;
   id: number;
   ingredients: never[];
@@ -7,4 +7,4 @@ type Dish = {
   sideOptions: string[];
   changes: string[];
 };
-export default Dish;
+export default DishType;

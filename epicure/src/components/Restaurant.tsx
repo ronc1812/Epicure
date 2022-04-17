@@ -2,20 +2,21 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import getDishes from "../services/getDishes";
 import getRestaurant from "../services/getRestaurant";
-import Dish from "../types/dishType";
-import RestaurantType from "../types/restaurantType";
+import DishType from "../types/dishType";
+import Dish from "./Dish";
+
 import Footer from "./Footer";
 import Header from "./Header";
 
 const Restaurant = () => {
   const { restaurant } = useParams<string>();
-  const [breakfastMenu, setBreakfastMenu] = useState<Dish[]>();
-  const [lunchMenu, setLunchMenu] = useState<Dish[]>();
-  const [dinnerMenu, setDinnerMenu] = useState<Dish[]>();
-  const [current, setCurrent] = useState<Dish[]>();
-  let breakfast: Dish[] = [];
-  let lunch: Dish[] = [];
-  let dinner: Dish[] = [];
+  const [breakfastMenu, setBreakfastMenu] = useState<DishType[]>();
+  const [lunchMenu, setLunchMenu] = useState<DishType[]>();
+  const [dinnerMenu, setDinnerMenu] = useState<DishType[]>();
+  const [current, setCurrent] = useState<DishType[]>();
+  let breakfast: DishType[] = [];
+  let lunch: DishType[] = [];
+  let dinner: DishType[] = [];
   useEffect(() => {
     function getInfo() {
       const currentRes = getRestaurant(restaurant);
@@ -45,7 +46,7 @@ const Restaurant = () => {
       <button onClick={() => setCurrent(dinnerMenu)}>Dinner</button>
       <br />
       {current?.map((dish) => {
-        return <img src={dish.picture} alt={dish.name} key={dish.id} />;
+        return <Dish />;
       })}
       <Footer />
     </>
