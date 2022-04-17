@@ -10,7 +10,6 @@ const Dish: React.FC<{ dish: DishType }> = (props) => {
           trigger={
             <button>
               <img src={props.dish.picture} alt={props.dish.name} />
-              open modal
             </button>
           }
         >
