@@ -46,6 +46,7 @@ const RestaurantsPage = () => {
       {restaurants?.map((restaurant) => {
         return (
           <img
+            key={restaurant.name}
             src={restaurant.picture}
             alt={restaurant.name}
             onClick={() => navigator(`/restaurants/${restaurant.name}`)}

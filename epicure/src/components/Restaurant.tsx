@@ -46,7 +46,7 @@ const Restaurant = () => {
       <button onClick={() => setCurrent(dinnerMenu)}>Dinner</button>
       <br />
       {current?.map((dish) => {
-        return <Dish />;
+        return <Dish dish={dish} key={dish.id} />;
       })}
       <Footer />
     </>
