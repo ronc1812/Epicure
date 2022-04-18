@@ -1,12 +1,25 @@
 import { useEffect, useState } from "react";
 import getSignature from "../services/getSignature";
+import Dish from "./Dish";
+import DishType from "../types/dishType";
+import styled from "styled-components";
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
+const Headline = styled.header`
+  @media (max-width: 768px) {
+    font-size: 13px;
+    font-family: HelveticaNeue-thin;
+    margin-top: 15px;
+  }
+`;
+const Wrapper = styled.div`
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
+`;
 
 const SignatureDish = () => {
-  const [dishes, setDishes] = useState<{
-    pic1: string;
-    pic2: string;
-    pic3: string;
-  }>();
+  const [dishes, setDishes] = useState<DishType[]>([]);
   useEffect(() => {
     function getDishes() {
       const fetchDishes = getSignature();
@@ -14,12 +27,34 @@ const SignatureDish = () => {
     }
     getDishes();
   }, []);
+
+  function onWheel(
+    apiObj: scrollVisibilityApiType,
+    ev: React.WheelEvent
+  ): void {
+    const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+
+    if (isThouchpad) {
+      ev.stopPropagation();
+      return;
+    }
+
+    if (ev.deltaY < 0) {
+      apiObj.scrollNext();
+    } else if (ev.deltaY > 0) {
+      apiObj.scrollPrev();
+    }
+  }
   return (
     <>
-      <header>SIGNATURE DISH OF :</header>
-      <img src={dishes?.pic1} alt="dish1" />
-      <img src={dishes?.pic2} alt="dish2" />
-      <img src={dishes?.pic3} alt="dish3" />
+      <Wrapper>
+        <Headline>SIGNATURE DISH OF :</Headline>
+        <ScrollMenu onWheel={onWheel}>
+          {dishes.map((dish) => {
+            return <Dish dish={dish} key={dish.name} />;
+          })}
+        </ScrollMenu>
+      </Wrapper>
     </>
   );
 };

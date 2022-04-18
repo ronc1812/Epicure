@@ -11,9 +11,11 @@ const Navbar = styled.div`
   @media (max-width: 768px) {
     display: grid;
     grid-template-areas: "a b c d";
-    width: 250px;
+    width: 390px;
     height: 50px;
     box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
+    background-color: white;
+    margin-left: -8px;
   }
 `;
 const MobileBar = styled.div`
@@ -58,16 +60,14 @@ const IconProfile = styled.img`
     text-align: right;
     margin-top: 8px;
     height: 25px;
-    margin-right: 30px;
+    margin-right: 15px;
   }
 `;
 const IconBasket = styled.img`
   @media (max-width: 768px) {
     grid-area: d;
-    text-align: right;
     margin-top: 8px;
     height: 25px;
-    margin-right: -30px;
   }
 `;
 const Header = () => {
