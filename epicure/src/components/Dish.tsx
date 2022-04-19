@@ -12,7 +12,7 @@ const Picture = styled.button`
 const Wrapper = styled.div`
   @media (max-width: 768px) {
     background-color: #ffffff;
-    width: 390px;
+    width: 100%;
     height: 844px;
   }
 `;

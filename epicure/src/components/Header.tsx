@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import styled from "styled-components";
 import Popup from "reactjs-popup";
 import bar from "../images/hamburgerBar.png";
-
+import NavarButtons from "./NavbarButtons";
 const logo = require("../images/epicure-logo.jpg");
 const userIcon = require("../images/user-icon.png");
 const bagIcon = require("../images/bag-icon.png");
@@ -11,11 +11,11 @@ const Navbar = styled.div`
   @media (max-width: 768px) {
     display: grid;
     grid-template-areas: "a b c d";
-    width: 390px;
+    width: 100%;
     height: 50px;
     box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
     background-color: white;
-    margin-left: -8px;
+    margin-left: 3px;
   }
 `;
 const MobileBar = styled.div`
@@ -70,6 +70,14 @@ const IconBasket = styled.img`
     height: 25px;
   }
 `;
+
+const Modal = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 844px;
+    background-color: white;
+  }
+`;
 const Header = () => {
   const navigator = useNavigate();
   const navigatorHome = () => {
@@ -94,9 +102,11 @@ const Header = () => {
               </HamburgerBar>
             }
           >
-            <button onClick={navigatorHome}>EPICURE</button>
-            <button onClick={navigatorRes}>Restaurants</button>
-            <button onClick={navigatorChefs}>Chefs</button>
+            {(close: () => void) => (
+              <Modal>
+                <NavarButtons close={close} />
+              </Modal>
+            )}
           </Popup>
         </MobileBar>
         <DesktopBar>
