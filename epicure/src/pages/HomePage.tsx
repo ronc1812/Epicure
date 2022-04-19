@@ -8,7 +8,12 @@ import PopularRes from "../components/PopularRes";
 import SearchBar from "../components/SearchBar";
 import SignatureDish from "../components/Signature";
 import back from "../images/background.jpg";
+import backForDesktop from "../images/hero-picture.jpg";
 const BackImg = styled.div`
+  @media (min-width: 769px) {
+    background-image: url(${backForDesktop});
+    height: 600px;
+  }
   @media (max-width: 768px) {
     background-image: url(${back});
     padding: 80px 10px 65px;
@@ -17,15 +22,27 @@ const BackImg = styled.div`
   }
 `;
 const SearchSection = styled.div`
+  @media (min-width: 769px) {
+    background-color: rgba(255, 255, 255, 0.88);
+    width: 60%;
+    height: 200px;
+    margin-left: 20%;
+  }
   @media (max-width: 768px) {
     background-color: rgba(255, 255, 255, 0.88);
     width: 330px;
     height: 125px;
     margin-left: 15px;
-    margin-top: px;
   }
 `;
 const Headline = styled.header`
+  @media (min-width: 769px) {
+    font-size: 35px;
+    margin-left: 125px;
+    margin-right: 125px;
+    font-family: HelveticaNeue-thin;
+    text-align: center;
+  }
   @media (max-width: 768px) {
     font-size: 27px;
     margin-left: 15px;
@@ -39,9 +56,8 @@ const HomePage = () => {
       <div>
         <BackImg>
           <SearchSection>
-            <Headline>
-              Epicure works with the top chef restaurants in Tel Aviv
-            </Headline>
+            <Headline>Epicure works with the top</Headline>
+            <Headline>chef restaurants in Tel Aviv</Headline>
             <SearchBar />
           </SearchSection>
         </BackImg>

@@ -8,6 +8,15 @@ const logo = require("../images/epicure-logo.jpg");
 const userIcon = require("../images/user-icon.png");
 const bagIcon = require("../images/bag-icon.png");
 const Navbar = styled.div`
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-areas: "a b c d e";
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
+    background-color: white;
+    margin-left: 3px;
+  }
   @media (max-width: 768px) {
     display: grid;
     grid-template-areas: "a b c d";
@@ -26,12 +35,22 @@ const MobileBar = styled.div`
   }
 `;
 const DesktopBar = styled.div`
-  visibility: visible;
+  @media (min-width: 769px) {
+    visibility: visible;
+    grid-area: a;
+    margin-top: 2%;
+  }
   @media (max-width: 768px) {
     visibility: hidden;
   }
 `;
 const Logo = styled.img`
+  @media (min-width: 769px) {
+    grid-area: a;
+    width: 8%;
+    margin-left: 15%;
+    margin-top: 1%;
+  }
   @media (max-width: 768px) {
     grid-area: b;
     height: 35px;
@@ -55,6 +74,11 @@ const BarLogo = styled(Logo)`
   }
 `;
 const IconProfile = styled.img`
+  @media (min-width: 769px) {
+    grid-area: e;
+    width: 12%;
+    margin-left: -3%;
+  }
   @media (max-width: 768px) {
     grid-area: c;
     text-align: right;
@@ -64,6 +88,11 @@ const IconProfile = styled.img`
   }
 `;
 const IconBasket = styled.img`
+  @media (min-width: 769px) {
+    grid-area: e;
+    width: 12%;
+    margin-left: 20%;
+  }
   @media (max-width: 768px) {
     grid-area: d;
     margin-top: 8px;
@@ -75,6 +104,29 @@ const Modal = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: 844px;
+    background-color: white;
+  }
+`;
+
+const Button = styled.button`
+  @media (min-width: 769px) {
+    grid-area: b;
+    font-size: 18px;
+    font-family: HelveticaNeue-Thin;
+    border: 0;
+    margin-left: 10%;
+    color: grey;
+    background-color: white;
+  }
+`;
+
+const ButtonEpicure = styled.button`
+  @media (min-width: 769px) {
+    grid-area: a;
+    font-size: 24px;
+    font-family: HelveticaNeue-thin;
+    border: 0;
+    margin-left: 25%;
     background-color: white;
   }
 `;
@@ -110,9 +162,9 @@ const Header = () => {
           </Popup>
         </MobileBar>
         <DesktopBar>
-          <button onClick={navigatorHome}>Epicure</button>
-          <button onClick={navigatorRes}>Restaurants</button>
-          <button onClick={navigatorChefs}>Chefs</button>
+          <ButtonEpicure onClick={navigatorHome}>Epicure</ButtonEpicure>
+          <Button onClick={navigatorRes}>Restaurants</Button>
+          <Button onClick={navigatorChefs}>Chefs</Button>
         </DesktopBar>
         <SearchBar />
 

@@ -6,6 +6,12 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
 const Headline = styled.header`
+  @media (min-width: 769px) {
+    font-size: 30px;
+    font-family: HelveticaNeue-Thin;
+    margin-top: 60px;
+    text-align: center;
+  }
   @media (max-width: 768px) {
     font-size: 13px;
     font-family: HelveticaNeue-thin;
@@ -14,6 +20,11 @@ const Headline = styled.header`
   }
 `;
 const Res = styled.img`
+  @media (min-width: 769px) {
+    width: 330px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
   @media (max-width: 768px) {
     width: 250px;
     margin-left: 10px;
@@ -21,6 +32,22 @@ const Res = styled.img`
   }
 `;
 const All = styled.button`
+  @media (min-width: 769px) {
+    margin-left: 72%;
+    border: 0;
+    background-color: white;
+    font-family: HelveticaNeue-thin;
+    font-size: 25px;
+  }
+  @media (max-width: 768px) {
+    visibility: hidden;
+  }
+`;
+const DesktopDiv = styled.div`
+  @media (min-width: 769px) {
+    margin-left: 20%;
+    width: 100%;
+  }
   @media (max-width: 768px) {
     visibility: hidden;
   }
@@ -59,11 +86,13 @@ const PopularRes = () => {
     <>
       <Headline>THE POPULAR RESTAURANTS IN EPICURE :</Headline>
       <ScrollMenu onWheel={onWheel}>
-        {popular.map((restaurant) => {
-          return (
-            <Res src={restaurant} alt="" key={popular.indexOf(restaurant)} />
-          );
-        })}
+        <DesktopDiv>
+          {popular.map((restaurant) => {
+            return (
+              <Res src={restaurant} alt="" key={popular.indexOf(restaurant)} />
+            );
+          })}
+        </DesktopDiv>
       </ScrollMenu>
       <br />
       <All onClick={restaurantsHandler}>All Restaurants {">>"}</All>
