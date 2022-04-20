@@ -7,6 +7,9 @@ const Headline = styled.header`
   font-size: 13px;
   font-family: HelveticaNeue-thin;
   text-align: center;
+  @media only screen and (min-width: 650px) {
+    font-size: 30px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -18,6 +21,10 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  @media only screen and (min-width: 650px) {
+    gap: 35px;
+    height: 30vh;
+  }
 `;
 const Icons = styled.div`
   display: flex;
@@ -25,6 +32,9 @@ const Icons = styled.div`
   align-items: center;
   margin-top: 10px;
   gap: 40px;
+  @media only screen and (min-width: 650px) {
+    gap: 140px;
+  }
 `;
 const Label = styled.label`
   font-size: 14px;

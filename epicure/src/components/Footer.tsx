@@ -3,24 +3,24 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-top: 1px solid #cdc9c9;
+  border-top: 1px solid #e0dcdc;
   bottom: 0;
   width: 100%;
+  @media only screen and (min-width: 650px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+  }
 `;
 const StyledButton = styled.button`
+  border: 0;
+  margin-top: 12px;
+  background-color: white;
+  font-size: 12px;
+  font-family: HelveticaNeue-thin;
   @media (min-width: 769px) {
-    border: 0;
-    margin-top: 12px;
-    background-color: white;
     font-size: 20px;
-    font-family: HelveticaNeue-thin;
-  }
-  @media (max-width: 768px) {
-    border: 0;
-    margin-top: 12px;
-    background-color: white;
-    font-size: 12px;
-    font-family: HelveticaNeue-thin;
   }
 `;
 const Footer = () => {

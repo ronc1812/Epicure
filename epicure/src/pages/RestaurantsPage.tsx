@@ -9,11 +9,16 @@ const Headline = styled.header`
   font-size: 20px;
   font-family: HelveticaNeue-thin;
   margin-top: 4px;
+  @media only screen and (min-width: 650px) {
+    visibility: hidden;
+  }
 `;
 const Picture = styled.img`
-  margin-left: 10px;
-  margin-top: 10px;
+  padding: 2% 2%;
   width: 45%;
+  @media only screen and (min-width: 650px) {
+    width: 25%;
+  }
 `;
 
 const Navbar = styled.div`
@@ -22,6 +27,10 @@ const Navbar = styled.div`
   width: 100%;
   height: 8vh;
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
+  @media only screen and (min-width: 650px) {
+    width: 40%;
+    box-shadow: 0px 0px 0px 0px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -35,6 +44,15 @@ const FooterDiv = styled.div`
   position: fixed;
   bottom: 10px;
   width: 100%;
+  @media only screen and (min-width: 650px) {
+    position: relative;
+  }
+`;
+const Div = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 `;
 const StyledButton = styled.button`
   border: 0;
@@ -43,6 +61,9 @@ const StyledButton = styled.button`
   font-family: HelveticaNeue-thin;
   :hover {
     font-family: HelveticaNeue;
+  }
+  @media only screen and (min-width: 650px) {
+    font-size: 20px;
   }
 `;
 const RestaurantsPage = () => {
@@ -86,7 +107,7 @@ const RestaurantsPage = () => {
           <StyledButton onClick={popularHandler}>Most Popular</StyledButton>
           <StyledButton onClick={openHandler}>Open Now</StyledButton>
         </Navbar>
-        <div>
+        <Div>
           {restaurants?.map((restaurant) => {
             return (
               <Picture
@@ -97,7 +118,7 @@ const RestaurantsPage = () => {
               />
             );
           })}
-        </div>
+        </Div>
       </Wrapper>
       <FooterDiv>
         <Footer />

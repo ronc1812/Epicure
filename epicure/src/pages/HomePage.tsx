@@ -23,7 +23,8 @@ const BackImg = styled.div`
   align-items: center;
   justify-content: center;
   background-image: url(${backForMobile});
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 650px) {
+    background-image: url(${backForDesktop});
     width: 100%;
     height: 600px;
   }
@@ -35,25 +36,20 @@ const SearchSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 650px) {
     background-color: rgba(255, 255, 255, 0.88);
-    width: 60%;
-    height: 200px;
-    top: 30%;
-    transform: translateX(-50%);
-    left: 50%;
+    width: 50vw;
+    height: 25vh;
   }
 `;
-const Headline = styled.header`
+const Headline = styled.div`
   font-size: 27px;
   text-align: center;
   font-family: HelveticaNeue-thin;
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 650px) {
     font-size: 35px;
-    margin-left: 125px;
-    margin-right: 125px;
-    font-family: HelveticaNeue-thin;
-    text-align: center;
+    text-align: justify;
+    width: 54.5%;
   }
 `;
 const HomePage = () => {

@@ -10,44 +10,44 @@ const bagIcon = require("../images/bag-icon.png");
 const Navbar = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   width: 100%;
   height: 7vh;
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
   background-color: white;
-  @media only screen and (min-width: 600px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
-    background-color: white;
+  gap: 25%;
+  @media only screen and (min-width: 650px) {
+    gap: 45%;
   }
 `;
 const MobileBar = styled.div`
   visibility: visible;
   display: flex;
-  gap: 110px;
-  @media only screen and (min-width: 600px) {
-    visibility: hidden;
-  }
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+`;
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 `;
 const DesktopBar = styled.div`
   visibility: hidden;
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 650px) {
     visibility: visible;
-    grid-area: a;
-    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 `;
 const Logo = styled.img`
   height: 4vh;
-  @media (min-width: 769px) {
-    grid-area: a;
-    width: 8%;
-    margin-left: 15%;
-    margin-top: 1%;
+  @media only screen and (min-width: 650px) {
+    height: 5vh;
   }
 `;
 const HamburgerBar = styled.button`
@@ -60,9 +60,15 @@ const BarLogo = styled(Logo)`
 `;
 const IconProfile = styled.img`
   height: 3vh;
+  @media only screen and (min-width: 650px) {
+    height: 5vh;
+  }
 `;
 const IconBasket = styled.img`
   height: 3vh;
+  @media only screen and (min-width: 650px) {
+    height: 5vh;
+  }
 `;
 
 const Modal = styled.div`
@@ -72,23 +78,19 @@ const Modal = styled.div`
 `;
 
 const Button = styled.button`
-  @media (min-width: 769px) {
-    grid-area: b;
+  @media only screen and (min-width: 650px) {
     font-size: 18px;
     font-family: HelveticaNeue-Thin;
     border: 0;
-    margin-left: 10%;
     color: grey;
     background-color: white;
   }
 `;
 
 const ButtonEpicure = styled.button`
-  grid-area: a;
-  font-size: 24px;
+  font-size: 27px;
   font-family: HelveticaNeue-thin;
   border: 0;
-  margin-left: 25%;
   background-color: white;
 `;
 const Header = () => {
@@ -105,33 +107,39 @@ const Header = () => {
   return (
     <>
       <Navbar>
-        <MobileBar>
-          <Popup
-            modal
-            trigger={
-              <HamburgerBar>
-                <BarLogo src={bar} alt="bar" />
-              </HamburgerBar>
-            }
-          >
-            {(close: () => void) => (
-              <Modal>
-                <NavarButtons close={close} />
-              </Modal>
-            )}
-          </Popup>
-          <Logo src={logo} alt="logo" />
-        </MobileBar>
-        <DesktopBar>
-          <Logo src={logo} alt="logo" />
-          <ButtonEpicure onClick={navigatorHome}>Epicure</ButtonEpicure>
-          <Button onClick={navigatorRes}>Restaurants</Button>
-          <Button onClick={navigatorChefs}>Chefs</Button>
-        </DesktopBar>
-        <SearchBar />
-
-        <IconProfile src={userIcon} alt="user-icon" />
-        <IconBasket src={bagIcon} alt="cart" />
+        {window.innerWidth <= 600 ? (
+          <MobileBar>
+            <Popup
+              modal
+              trigger={
+                <HamburgerBar>
+                  <BarLogo src={bar} alt="bar" />
+                </HamburgerBar>
+              }
+            >
+              {(close: () => void) => (
+                <Modal>
+                  <NavarButtons close={close} />
+                </Modal>
+              )}
+            </Popup>
+            <Logo src={logo} alt="logo" />
+          </MobileBar>
+        ) : (
+          <div>
+            <DesktopBar>
+              <Logo src={logo} alt="logo" />
+              <ButtonEpicure onClick={navigatorHome}>EPICURE</ButtonEpicure>
+              <Button onClick={navigatorRes}>Restaurants</Button>
+              <Button onClick={navigatorChefs}>Chefs</Button>
+            </DesktopBar>
+          </div>
+        )}
+        <Wrap>
+          <SearchBar />
+          <IconProfile src={userIcon} alt="user-icon" />
+          <IconBasket src={bagIcon} alt="cart" />
+        </Wrap>
       </Navbar>
     </>
   );

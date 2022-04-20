@@ -8,20 +8,28 @@ type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const Headline = styled.header`
   font-size: 13px;
   font-family: HelveticaNeue-thin;
-  @media (min-width: 769px) {
+  @media only screen and (min-width: 650px) {
     font-size: 30px;
-    font-family: HelveticaNeue-thin;
-    margin-top: 4%;
     text-align: center;
-    margin-right: 15%;
   }
 `;
 const Wrapper = styled.div`
-  @media (min-width: 769px) {
-    margin-left: 15%;
+  @media only screen and (min-width: 650px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
   }
 `;
-
+const Wrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (min-width: 650px) {
+    gap: 30px;
+  }
+`;
 const SignatureDish = () => {
   const [dishes, setDishes] = useState<DishType[]>([]);
   useEffect(() => {
@@ -53,10 +61,13 @@ const SignatureDish = () => {
     <>
       <Wrapper>
         <Headline>SIGNATURE DISH OF :</Headline>
+
         <ScrollMenu onWheel={onWheel}>
-          {dishes.map((dish) => {
-            return <Dish dish={dish} key={dish.name} />;
-          })}
+          <Wrap>
+            {dishes.map((dish) => {
+              return <Dish dish={dish} key={dish.name} />;
+            })}
+          </Wrap>
         </ScrollMenu>
       </Wrapper>
     </>
