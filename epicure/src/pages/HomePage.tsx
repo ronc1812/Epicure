@@ -7,74 +7,76 @@ import Info from "../components/Info";
 import PopularRes from "../components/PopularRes";
 import SearchBar from "../components/SearchBar";
 import SignatureDish from "../components/Signature";
-import back from "../images/background.jpg";
 import backForDesktop from "../images/hero-picture.jpg";
+import backForMobile from "../images/background.jpg";
+const MainDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+`;
 const BackImg = styled.div`
-  @media (min-width: 769px) {
-    background-image: url(${backForDesktop});
+  width: 100%;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(${backForMobile});
+  @media only screen and (min-width: 600px) {
+    width: 100%;
     height: 600px;
-  }
-  @media (max-width: 768px) {
-    background-image: url(${back});
-    padding: 80px 10px 65px;
-    width: 370px;
-    margin-left: -8px;
   }
 `;
 const SearchSection = styled.div`
-  @media (min-width: 769px) {
+  background-color: rgba(255, 255, 255, 0.88);
+  width: 85vw;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (min-width: 600px) {
     background-color: rgba(255, 255, 255, 0.88);
     width: 60%;
     height: 200px;
-    margin-left: 20%;
-  }
-  @media (max-width: 768px) {
-    background-color: rgba(255, 255, 255, 0.88);
-    width: 330px;
-    height: 125px;
-    margin-left: 15px;
+    top: 30%;
+    transform: translateX(-50%);
+    left: 50%;
   }
 `;
 const Headline = styled.header`
-  @media (min-width: 769px) {
+  font-size: 27px;
+  text-align: center;
+  font-family: HelveticaNeue-thin;
+  @media only screen and (min-width: 600px) {
     font-size: 35px;
     margin-left: 125px;
     margin-right: 125px;
     font-family: HelveticaNeue-thin;
     text-align: center;
   }
-  @media (max-width: 768px) {
-    font-size: 27px;
-    margin-left: 15px;
-    font-family: HelveticaNeue-thin;
-  }
 `;
 const HomePage = () => {
   return (
     <>
       <Header />
-      <div>
-        <BackImg>
+      <BackImg>
+        <header>
           <SearchSection>
-            <Headline>Epicure works with the top</Headline>
-            <Headline>chef restaurants in Tel Aviv</Headline>
+            <Headline>
+              Epicure works with the top chef restaurants in Tel Aviv
+            </Headline>
             <SearchBar />
           </SearchSection>
-        </BackImg>
-      </div>
-      <div>
-        <PopularRes />
-      </div>
-      <div>
-        <SignatureDish />
-      </div>
-      <div>
+        </header>
+      </BackImg>
+      <PopularRes />
+      <SignatureDish />
+      <MainDiv>
         <IconMeaning />
-      </div>
-      <div>
         <ChefOfTheWeek />
-      </div>
-      <Info />
+        <Info />
+      </MainDiv>
       <Footer />
     </>
   );

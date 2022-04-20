@@ -2,19 +2,23 @@ import DishContent from "./DishContent";
 import Popup from "reactjs-popup";
 import DishType from "../types/dishType";
 import styled from "styled-components";
-const Picture = styled.button`
-  @media (max-width: 768px) {
+const Button = styled.button`
+  @media (min-width: 769px) {
     background-color: #ffffff;
     border: 0;
-    margin-left: -5px;
+    margin-top: 2%;
   }
+
+  background-color: #ffffff;
+  border: 0;
+`;
+const Picture = styled.img`
+  width: 60vw;
 `;
 const Wrapper = styled.div`
-  @media (max-width: 768px) {
-    background-color: #ffffff;
-    width: 100%;
-    height: 844px;
-  }
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
 `;
 const Dish: React.FC<{ dish: DishType }> = (props) => {
   return (
@@ -23,9 +27,9 @@ const Dish: React.FC<{ dish: DishType }> = (props) => {
         <Popup
           modal={true}
           trigger={
-            <Picture>
-              <img src={props.dish.picture} alt={props.dish.name} />
-            </Picture>
+            <Button>
+              <Picture src={props.dish.picture} alt={props.dish.name} />
+            </Button>
           }
         >
           {(close: () => void) => (

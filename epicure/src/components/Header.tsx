@@ -8,104 +8,67 @@ const logo = require("../images/epicure-logo.jpg");
 const userIcon = require("../images/user-icon.png");
 const bagIcon = require("../images/bag-icon.png");
 const Navbar = styled.div`
-  @media (min-width: 769px) {
-    display: grid;
-    grid-template-areas: "a b c d e";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 7vh;
+  box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
+  background-color: white;
+  @media only screen and (min-width: 600px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 50px;
     box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
     background-color: white;
-    margin-left: 3px;
-  }
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-areas: "a b c d";
-    width: 100%;
-    height: 50px;
-    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
-    background-color: white;
-    margin-left: 3px;
   }
 `;
 const MobileBar = styled.div`
-  visibility: hidden;
-  @media (max-width: 768px) {
-    grid-area: a;
-    visibility: visible;
+  visibility: visible;
+  display: flex;
+  gap: 110px;
+  @media only screen and (min-width: 600px) {
+    visibility: hidden;
   }
 `;
 const DesktopBar = styled.div`
-  @media (min-width: 769px) {
+  visibility: hidden;
+  @media only screen and (min-width: 600px) {
     visibility: visible;
     grid-area: a;
     margin-top: 2%;
   }
-  @media (max-width: 768px) {
-    visibility: hidden;
-  }
 `;
 const Logo = styled.img`
+  height: 4vh;
   @media (min-width: 769px) {
     grid-area: a;
     width: 8%;
     margin-left: 15%;
     margin-top: 1%;
   }
-  @media (max-width: 768px) {
-    grid-area: b;
-    height: 35px;
-    margin-top: 2px;
-    margin-left: -70px;
-  }
 `;
 const HamburgerBar = styled.button`
-  @media (max-width: 768px) {
-    grid-area: a;
-    background-color: white;
-    border: white;
-    margin-top: 8px;
-    margin-left: 40px;
-  }
+  width: 15vw;
+  background-color: white;
+  border: white;
 `;
 const BarLogo = styled(Logo)`
-  @media (max-width: 768px) {
-    margin-right: 0;
-    height: 20px;
-  }
+  height: 2.5vh;
 `;
 const IconProfile = styled.img`
-  @media (min-width: 769px) {
-    grid-area: e;
-    width: 12%;
-    margin-left: -3%;
-  }
-  @media (max-width: 768px) {
-    grid-area: c;
-    text-align: right;
-    margin-top: 8px;
-    height: 25px;
-    margin-right: 15px;
-  }
+  height: 3vh;
 `;
 const IconBasket = styled.img`
-  @media (min-width: 769px) {
-    grid-area: e;
-    width: 12%;
-    margin-left: 20%;
-  }
-  @media (max-width: 768px) {
-    grid-area: d;
-    margin-top: 8px;
-    height: 25px;
-  }
+  height: 3vh;
 `;
 
 const Modal = styled.div`
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 844px;
-    background-color: white;
-  }
+  width: 100%;
+  height: 100vh;
+  background-color: white;
 `;
 
 const Button = styled.button`
@@ -121,14 +84,12 @@ const Button = styled.button`
 `;
 
 const ButtonEpicure = styled.button`
-  @media (min-width: 769px) {
-    grid-area: a;
-    font-size: 24px;
-    font-family: HelveticaNeue-thin;
-    border: 0;
-    margin-left: 25%;
-    background-color: white;
-  }
+  grid-area: a;
+  font-size: 24px;
+  font-family: HelveticaNeue-thin;
+  border: 0;
+  margin-left: 25%;
+  background-color: white;
 `;
 const Header = () => {
   const navigator = useNavigate();
@@ -144,7 +105,6 @@ const Header = () => {
   return (
     <>
       <Navbar>
-        <Logo src={logo} alt="logo" />
         <MobileBar>
           <Popup
             modal
@@ -160,8 +120,10 @@ const Header = () => {
               </Modal>
             )}
           </Popup>
+          <Logo src={logo} alt="logo" />
         </MobileBar>
         <DesktopBar>
+          <Logo src={logo} alt="logo" />
           <ButtonEpicure onClick={navigatorHome}>Epicure</ButtonEpicure>
           <Button onClick={navigatorRes}>Restaurants</Button>
           <Button onClick={navigatorChefs}>Chefs</Button>

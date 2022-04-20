@@ -6,54 +6,43 @@ import Header from "../components/Header";
 import getRestaurants from "../services/getRestaurants";
 import restaurantType from "../types/restaurantType";
 const Headline = styled.header`
-  @media (max-width: 768px) {
-    font-size: 20px;
-    font-family: HelveticaNeue-thin;
-    margin-top: 15px;
-    margin-left: 120px;
-  }
+  font-size: 20px;
+  font-family: HelveticaNeue-thin;
+  margin-top: 4px;
 `;
 const Picture = styled.img`
-  @media (max-width: 768px) {
-    width: 170px;
-    margin-left: 15px;
-    margin-top: 15px;
-  }
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 45%;
 `;
 
 const Navbar = styled.div`
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-areas: "a b c d";
-    width: 390px;
-    margin-left: -8px;
-    height: 50px;
-    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
-  }
+  display: grid;
+  grid-template-areas: "a b c d";
+  width: 100%;
+  height: 8vh;
+  box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
 `;
 
 const Wrapper = styled.div`
-  @media (max-width: 768px) {
-    margin-left: -8px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
+
 const FooterDiv = styled.div`
-  @media (max-width: 768px) {
-    position: fixed;
-    bottom: 10px;
-    width: 390px;
-    margin-left: -8px;
-  }
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
 `;
 const StyledButton = styled.button`
-  @media (max-width: 768px) {
-    border: 0;
-    background-color: white;
-    font-size: 13px;
-    font-family: HelveticaNeue-thin;
-    :hover {
-      font-family: HelveticaNeue;
-    }
+  border: 0;
+  background-color: white;
+  font-size: 13px;
+  font-family: HelveticaNeue-thin;
+  :hover {
+    font-family: HelveticaNeue;
   }
 `;
 const RestaurantsPage = () => {
@@ -89,24 +78,26 @@ const RestaurantsPage = () => {
   return (
     <>
       <Header />
-      <Headline>RESTAURANTS</Headline>
-      <Navbar>
-        <StyledButton onClick={() => setRestaurants(all)}>All</StyledButton>
-        <StyledButton onClick={popularHandler}>New</StyledButton>
-        <StyledButton onClick={popularHandler}>Most Popular</StyledButton>
-        <StyledButton onClick={openHandler}>Open Now</StyledButton>
-      </Navbar>
       <Wrapper>
-        {restaurants?.map((restaurant) => {
-          return (
-            <Picture
-              key={restaurant.name}
-              src={restaurant.picture}
-              alt={restaurant.name}
-              onClick={() => navigator(`/restaurants/${restaurant.name}`)}
-            />
-          );
-        })}
+        <Headline>RESTAURANTS</Headline>
+        <Navbar>
+          <StyledButton onClick={() => setRestaurants(all)}>All</StyledButton>
+          <StyledButton onClick={popularHandler}>New</StyledButton>
+          <StyledButton onClick={popularHandler}>Most Popular</StyledButton>
+          <StyledButton onClick={openHandler}>Open Now</StyledButton>
+        </Navbar>
+        <div>
+          {restaurants?.map((restaurant) => {
+            return (
+              <Picture
+                key={restaurant.name}
+                src={restaurant.picture}
+                alt={restaurant.name}
+                onClick={() => navigator(`/restaurants/${restaurant.name}`)}
+              />
+            );
+          })}
+        </div>
       </Wrapper>
       <FooterDiv>
         <Footer />

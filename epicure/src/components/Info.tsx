@@ -1,38 +1,28 @@
 import styled from "styled-components";
 import logo from "../images/about-logo.png";
 const Headline = styled.header`
-  @media (max-width: 768px) {
-    font-size: 13px;
-    font-family: HelveticaNeue-thin;
-    text-align: center;
-    margin-top: 20px;
-  }
+  font-size: 13px;
+  font-family: HelveticaNeue-thin;
+  text-align: center;
+  margin-top: 20px;
 `;
 const Res = styled.img`
-  @media (max-width: 768px) {
-    width: 100px;
-    margin-left: 150px;
-    margin-top: 30px;
-    background-color: var(#cdc9c9);
-  }
+  width: 25%;
+  background-color: var(#cdc9c9);
 `;
 const InfoOnSite = styled.div`
-  @media (max-width: 768px) {
-    font-size: 13px;
-    width: 300px;
-    font-family: HelveticaNeue-thin;
-    text-align: center;
-    margin-left: 50px;
-    margin-top: 10px;
-  }
+  font-size: 13px;
+  width: 90%;
+  font-family: HelveticaNeue-thin;
+  text-align: center;
 `;
 const Wrapper = styled.div`
   background-color: #cdc9c9;
-  @media (max-width: 768px) {
-    background-color: #cdc9c9;
-    width: 390px;
-    margin-left: -8px;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Info = () => {
   return (

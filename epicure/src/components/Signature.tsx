@@ -6,15 +6,19 @@ import styled from "styled-components";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const Headline = styled.header`
-  @media (max-width: 768px) {
-    font-size: 13px;
+  font-size: 13px;
+  font-family: HelveticaNeue-thin;
+  @media (min-width: 769px) {
+    font-size: 30px;
     font-family: HelveticaNeue-thin;
-    margin-top: 15px;
+    margin-top: 4%;
+    text-align: center;
+    margin-right: 15%;
   }
 `;
 const Wrapper = styled.div`
-  @media (max-width: 768px) {
-    margin-left: 10px;
+  @media (min-width: 769px) {
+    margin-left: 15%;
   }
 `;
 

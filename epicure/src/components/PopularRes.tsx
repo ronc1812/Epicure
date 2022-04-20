@@ -6,32 +6,30 @@ import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
 const Headline = styled.header`
+  font-size: 13px;
+  font-family: HelveticaNeue-thin;
+  margin-top: 20px;
+  text-align: start;
   @media (min-width: 769px) {
     font-size: 30px;
     font-family: HelveticaNeue-Thin;
     margin-top: 60px;
     text-align: center;
   }
-  @media (max-width: 768px) {
-    font-size: 13px;
-    font-family: HelveticaNeue-thin;
-    margin-top: 60px;
-    margin-left: 10px;
-  }
 `;
 const Res = styled.img`
+  width: 60vw;
+  margin-top: 5px;
+  margin-left: 1vw;
   @media (min-width: 769px) {
     width: 330px;
     margin-left: 10px;
     margin-top: 5px;
   }
-  @media (max-width: 768px) {
-    width: 250px;
-    margin-left: 10px;
-    margin-top: 5px;
-  }
 `;
+
 const All = styled.button`
+  visibility: hidden;
   @media (min-width: 769px) {
     margin-left: 72%;
     border: 0;
@@ -39,19 +37,8 @@ const All = styled.button`
     font-family: HelveticaNeue-thin;
     font-size: 25px;
   }
-  @media (max-width: 768px) {
-    visibility: hidden;
-  }
 `;
-const DesktopDiv = styled.div`
-  @media (min-width: 769px) {
-    margin-left: 20%;
-    width: 100%;
-  }
-  @media (max-width: 768px) {
-    visibility: hidden;
-  }
-`;
+
 const PopularRes = () => {
   const navigator = useNavigate();
   const [popular, setPopular] = useState<string[]>([]);
@@ -85,15 +72,15 @@ const PopularRes = () => {
   return (
     <>
       <Headline>THE POPULAR RESTAURANTS IN EPICURE :</Headline>
+
       <ScrollMenu onWheel={onWheel}>
-        <DesktopDiv>
-          {popular.map((restaurant) => {
-            return (
-              <Res src={restaurant} alt="" key={popular.indexOf(restaurant)} />
-            );
-          })}
-        </DesktopDiv>
+        {popular.map((restaurant) => {
+          return (
+            <Res src={restaurant} alt="" key={popular.indexOf(restaurant)} />
+          );
+        })}
       </ScrollMenu>
+
       <br />
       <All onClick={restaurantsHandler}>All Restaurants {">>"}</All>
     </>

@@ -8,41 +8,25 @@ import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const FooterDiv = styled.div`
-  @media (max-width: 768px) {
-    position: fixed;
-    bottom: 10px;
-    width: 390px;
-    margin-left: -8px;
-  }
-`;
 const Navbar = styled.div`
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-areas: "a b c ";
-    width: 390px;
-    margin-left: -8px;
-    height: 50px;
-    box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
-  }
+  display: grid;
+  grid-template-areas: "a b c ";
+  width: 100%;
+  height: 8vh;
+  box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
 `;
 const StyledButton = styled.button`
-  @media (max-width: 768px) {
-    border: 0;
-    background-color: white;
-    font-size: 13px;
-    font-family: HelveticaNeue-thin;
-    :hover {
-      border-bottom: 1px solid orange;
-    }
+  border: 0;
+  background-color: white;
+  font-size: 13px;
+  font-family: HelveticaNeue-thin;
+  :hover {
+    border-bottom: 1px solid orange;
   }
 `;
 
 const Picture = styled.img`
-  @media (max-width: 768px) {
-    margin-left: -8px;
-    width: 390px;
-  }
+  width: 100%;
 `;
 const Restaurant = () => {
   const { restaurant } = useParams<string>();

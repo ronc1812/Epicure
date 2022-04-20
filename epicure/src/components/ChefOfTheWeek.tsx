@@ -3,29 +3,27 @@ import styled from "styled-components";
 import getChefOfTheWeek from "../services/getChefOfTheWeek";
 
 const Headline = styled.header`
-  @media (max-width: 768px) {
-    font-size: 13px;
-    font-family: HelveticaNeue-thin;
-    margin-top: 25px;
-    margin-left: 120px;
-  }
+  font-size: 13px;
+  font-family: HelveticaNeue-thin;
+  text-align: center;
 `;
 const Picture = styled.img`
-  @media (max-width: 768px) {
-    width: 300px;
-    margin-left: 30px;
-  }
+  width: 90%;
 `;
 
 const Info = styled.div`
-  @media (max-width: 768px) {
-    font-size: 13px;
-    width: 300px;
-    font-family: HelveticaNeue-thin;
-    text-align: center;
-    margin-left: 30px;
-    margin-top: 15px;
-  }
+  font-size: 13px;
+  width: 90%;
+  font-family: HelveticaNeue-thin;
+`;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  width: 80%;
+  font-family: HelveticaNeue-thin;
 `;
 const ChefOfTheWeek = () => {
   const [chef, setChef] = useState<{
@@ -41,12 +39,12 @@ const ChefOfTheWeek = () => {
     getChef();
   }, []);
   return (
-    <>
+    <Wrapper>
       <Headline>CHEF OF THE WEEK</Headline>
       <Picture src={chef?.picture} alt="chef" />
-      <br />
+
       <Info>{chef?.info}</Info>
-    </>
+    </Wrapper>
   );
 };
 export default ChefOfTheWeek;
