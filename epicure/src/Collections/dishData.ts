@@ -5,7 +5,9 @@ const dishes = [
   {
     name: "pad ki mao",
     id: 1,
-    ingredients: [],
+    ingredients: [
+      "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+    ],
     picture: padKi,
     price: 87,
     sideOptions: ["bread", "rice"],
@@ -14,7 +16,9 @@ const dishes = [
   {
     name: "red farm",
     id: 2,
-    ingredients: [],
+    ingredients: [
+      "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass Magic Chili Brown Coconut",
+    ],
     picture: redFarm,
     price: 64,
     sideOptions: ["bread"],
@@ -23,7 +27,7 @@ const dishes = [
   {
     name: " ta la ma  ko",
     id: 3,
-    ingredients: [],
+    ingredients: ["Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori"],
     picture: taLaMaKo,
     price: 55,
     sideOptions: ["rice", "salad"],

@@ -1,7 +1,7 @@
 type DishType = {
   name: string;
   id: number;
-  ingredients: never[];
+  ingredients: string[];
   picture: string;
   price: number;
   sideOptions: string[];

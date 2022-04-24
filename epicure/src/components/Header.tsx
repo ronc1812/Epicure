@@ -131,7 +131,11 @@ const Header = () => {
         )}
         <Wrap>
           <SearchBar />
-          <Icon src={searchIcon} alt="search" />
+          {window.innerWidth <= 600 ? (
+            <Icon src={searchIcon} alt="search" />
+          ) : (
+            <></>
+          )}
           <Icon src={userIcon} alt="user-icon" />
           <Icon src={bagIcon} alt="cart" />
         </Wrap>

@@ -20,7 +20,7 @@ const Info = styled.div`
 `;
 const Picture = styled.img`
   width: 100%;
-  height: 25vh;
+  height: 18vh;
 `;
 
 const Headline = styled.header`
@@ -41,7 +41,7 @@ const RestaurantCard: React.FC<{
 }> = (props) => {
   const restaurant = props.data;
   return (
-    <Wrapper>
+    <Wrapper onClick={props.onClick}>
       <Picture src={restaurant.picture} alt={restaurant.name} />
       <Info>
         <Headline>{restaurant.name}</Headline>

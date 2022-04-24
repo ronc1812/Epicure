@@ -15,7 +15,7 @@ const MainDiv = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 `;
 const BackImg = styled.div`
   width: 100%;
@@ -87,6 +87,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
+
       <BackImg>
         <header>
           <SearchSection>

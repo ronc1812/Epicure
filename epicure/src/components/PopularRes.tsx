@@ -7,6 +7,7 @@ import RestaurantType from "../types/restaurantType";
 import RestaurantCard from "./RestaurantCard";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const Wrap = styled.div`
+  margin-top: 15%;
   @media only screen and (min-width: 650px) {
     display: flex;
     align-items: center;
@@ -15,11 +16,18 @@ const Wrap = styled.div`
     gap: 20px;
   }
 `;
+const Div = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 1%;
+`;
 const Headline = styled.header`
   font-size: 13px;
   font-family: HelveticaNeue-thin;
   margin-top: 20px;
   text-align: start;
+  margin-left: 5%;
   @media only screen and (min-width: 650px) {
     font-size: 30px;
     text-align: center;
@@ -72,8 +80,8 @@ const PopularRes = () => {
   return (
     <Wrap>
       <Headline>THE POPULAR RESTAURANTS IN EPICURE :</Headline>
-      <div>
-        <ScrollMenu onWheel={onWheel}>
+      <ScrollMenu onWheel={onWheel}>
+        <Div>
           {popular.map((restaurant) => {
             return (
               <RestaurantCard
@@ -83,8 +91,8 @@ const PopularRes = () => {
               />
             );
           })}
-        </ScrollMenu>
-      </div>
+        </Div>
+      </ScrollMenu>
       <br />
       <All onClick={restaurantsHandler}>All Restaurants {">>"}</All>
     </Wrap>
