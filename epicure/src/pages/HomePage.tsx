@@ -9,6 +9,7 @@ import SearchBar from "../components/SearchBar";
 import SignatureDish from "../components/Signature";
 import backForDesktop from "../images/hero-picture.jpg";
 import backForMobile from "../images/background.jpg";
+import { useNavigate } from "react-router-dom";
 const MainDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -52,7 +53,37 @@ const Headline = styled.div`
     width: 54.5%;
   }
 `;
+
+const MobileButtons = styled.div`
+  background-color: #fafafa;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;
+const ChefButton = styled.button`
+  font-size: 13px;
+  border: 0;
+  letter-spacing: 0.93px;
+  height: 5vh;
+  text-align: center;
+  width: 18%;
+  font-family: HelveticaNeue;
+  background-color: rgba(232, 196, 122, 0.8);
+`;
+const ResButton = styled(ChefButton)`
+  width: 30%;
+`;
 const HomePage = () => {
+  const navigator = useNavigate();
+  const navigatorRes = () => {
+    navigator("/restaurants");
+  };
+  const navigatorChefs = () => {
+    navigator("/chefs");
+  };
   return (
     <>
       <Header />
@@ -66,6 +97,14 @@ const HomePage = () => {
           </SearchSection>
         </header>
       </BackImg>
+      {window.innerWidth <= 600 ? (
+        <MobileButtons>
+          <ChefButton onClick={navigatorChefs}>CHEFS</ChefButton>
+          <ResButton onClick={navigatorRes}>RESTAURANTS</ResButton>
+        </MobileButtons>
+      ) : (
+        <></>
+      )}
       <PopularRes />
       <SignatureDish />
       <MainDiv>

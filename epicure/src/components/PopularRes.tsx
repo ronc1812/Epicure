@@ -4,6 +4,7 @@ import styled from "styled-components";
 import getPopularRes from "../services/getPopularRes";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import RestaurantType from "../types/restaurantType";
+import RestaurantCard from "./RestaurantCard";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const Wrap = styled.div`
   @media only screen and (min-width: 650px) {
@@ -22,14 +23,6 @@ const Headline = styled.header`
   @media only screen and (min-width: 650px) {
     font-size: 30px;
     text-align: center;
-  }
-`;
-const Res = styled.img`
-  width: 60vw;
-  margin-top: 5px;
-  margin-left: 1vw;
-  @media only screen and (min-width: 650px) {
-    width: 90%;
   }
 `;
 
@@ -79,20 +72,19 @@ const PopularRes = () => {
   return (
     <Wrap>
       <Headline>THE POPULAR RESTAURANTS IN EPICURE :</Headline>
-
-      <ScrollMenu onWheel={onWheel}>
-        {popular.map((restaurant) => {
-          return (
-            <Res
-              src={restaurant.picture}
-              alt=""
-              key={popular.indexOf(restaurant)}
-              onClick={() => navigator(`/restaurants/${restaurant.name}`)}
-            />
-          );
-        })}
-      </ScrollMenu>
-
+      <div>
+        <ScrollMenu onWheel={onWheel}>
+          {popular.map((restaurant) => {
+            return (
+              <RestaurantCard
+                data={restaurant}
+                key={popular.indexOf(restaurant)}
+                onClick={() => navigator(`/restaurants/${restaurant.name}`)}
+              />
+            );
+          })}
+        </ScrollMenu>
+      </div>
       <br />
       <All onClick={restaurantsHandler}>All Restaurants {">>"}</All>
     </Wrap>

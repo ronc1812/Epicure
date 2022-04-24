@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Popup from "reactjs-popup";
 import bar from "../images/hamburgerBar.png";
 import NavarButtons from "./NavbarButtons";
+import searchIcon from "../images/search-icon.png";
 const logo = require("../images/epicure-logo.jpg");
 const userIcon = require("../images/user-icon.png");
 const bagIcon = require("../images/bag-icon.png");
@@ -11,12 +12,11 @@ const Navbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   width: 100%;
   height: 7vh;
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
   background-color: white;
-  gap: 25%;
+  gap: 20%;
   @media only screen and (min-width: 650px) {
     gap: 45%;
   }
@@ -26,13 +26,13 @@ const MobileBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 120px;
+  gap: 140px;
 `;
 const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 `;
 const DesktopBar = styled.div`
   visibility: hidden;
@@ -51,21 +51,15 @@ const Logo = styled.img`
   }
 `;
 const HamburgerBar = styled.button`
-  width: 15vw;
+  width: 4vw;
   background-color: white;
   border: white;
 `;
 const BarLogo = styled(Logo)`
-  height: 2.5vh;
+  height: 2vh;
 `;
-const IconProfile = styled.img`
-  height: 3vh;
-  @media only screen and (min-width: 650px) {
-    height: 5vh;
-  }
-`;
-const IconBasket = styled.img`
-  height: 3vh;
+const Icon = styled.img`
+  height: 2vh;
   @media only screen and (min-width: 650px) {
     height: 5vh;
   }
@@ -137,8 +131,9 @@ const Header = () => {
         )}
         <Wrap>
           <SearchBar />
-          <IconProfile src={userIcon} alt="user-icon" />
-          <IconBasket src={bagIcon} alt="cart" />
+          <Icon src={searchIcon} alt="search" />
+          <Icon src={userIcon} alt="user-icon" />
+          <Icon src={bagIcon} alt="cart" />
         </Wrap>
       </Navbar>
     </>
