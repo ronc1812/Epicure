@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import RestaurantType from "../types/restaurantType";
 const Wrapper = styled.div`
-  width: 45vw;
-  height: 40vh;
+  width: 47vw;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

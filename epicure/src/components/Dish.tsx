@@ -6,11 +6,12 @@ import DishCard from "./DishCard";
 const Button = styled.button`
   background-color: #ffffff;
   border: 0;
+  padding: 8px 1px;
 `;
 const Wrapper = styled.div`
   background-color: #ffffff;
   width: 100%;
-  height: 100vh;
+  height: 500vh;
 `;
 
 const Dish: React.FC<{ dish: DishType }> = (props) => {

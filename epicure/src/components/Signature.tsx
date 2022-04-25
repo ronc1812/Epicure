@@ -4,7 +4,6 @@ import Dish from "./Dish";
 import DishType from "../types/dishType";
 import styled from "styled-components";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import DishCard from "./DishCard";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const Headline = styled.header`
   font-size: 13px;
@@ -26,8 +25,7 @@ const Wrapper = styled.div`
 `;
 const Wrap = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
   @media only screen and (min-width: 650px) {
     gap: 30px;
   }

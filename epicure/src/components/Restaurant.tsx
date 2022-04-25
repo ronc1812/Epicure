@@ -7,10 +7,24 @@ import Dish from "./Dish";
 import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
-
+import RestaurantType from "../types/restaurantType";
+import clock from "../images/clock-icon.png";
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+`;
+const Dishes = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 const Navbar = styled.div`
-  display: grid;
-  grid-template-areas: "a b c ";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   width: 100%;
   height: 8vh;
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
@@ -22,7 +36,7 @@ const Navbar = styled.div`
 const StyledButton = styled.button`
   border: 0;
   background-color: white;
-  font-size: 13px;
+  font-size: 17px;
   font-family: HelveticaNeue-thin;
   :hover {
     border-bottom: 1px solid orange;
@@ -38,9 +52,23 @@ const Wrap = styled.div`
 `;
 const Picture = styled.img`
   width: 100%;
+  height: 35vh;
   @media only screen and (min-width: 650px) {
     width: 60%;
   }
+`;
+
+const Name = styled.header`
+  font-size: 35px;
+  font-family: HelveticaNeue;
+`;
+const Chef = styled(Name)`
+  font-size: 24px;
+  font-family: HelveticaNeue-Thin;
+`;
+const Open = styled(Name)`
+  font-family: HelveticaNeue-thin;
+  font-size: 12px;
 `;
 const Restaurant = () => {
   const { restaurant } = useParams<string>();
@@ -49,12 +77,14 @@ const Restaurant = () => {
   const [dinnerMenu, setDinnerMenu] = useState<DishType[]>();
   const [current, setCurrent] = useState<DishType[]>();
   const [picture, setPicture] = useState<string>("");
+  const [res, setRes] = useState<RestaurantType>();
   let breakfast: DishType[] = [];
   let lunch: DishType[] = [];
   let dinner: DishType[] = [];
   useEffect(() => {
     function getInfo() {
       const currentRes = getRestaurant(restaurant);
+      setRes(currentRes[0]);
       currentRes[0]?.menu.breakfast.map((id) => {
         return breakfast.push(getDishes(id));
       });
@@ -77,7 +107,14 @@ const Restaurant = () => {
     <>
       <Header />
       <Wrap>
-        <Picture src={picture} alt="" />
+        <Wrapper>
+          <Picture src={picture} alt="" />
+          <Name>{res?.name}</Name>
+          <Chef>{res?.chef}</Chef>
+          <Open>
+            <img src={clock} alt="" /> Open Now
+          </Open>
+        </Wrapper>
         <Navbar>
           <StyledButton onClick={() => setCurrent(breakfastMenu)}>
             Breakfast
@@ -90,9 +127,15 @@ const Restaurant = () => {
           </StyledButton>
         </Navbar>
         <br />
-        {current?.map((dish) => {
-          return <Dish dish={dish} key={dish.id} />;
-        })}
+        <Dishes>
+          {current?.map((dish) => {
+            return (
+              <div style={{ width: "50%" }} key={dish.id}>
+                <Dish dish={dish} key={dish.id} />
+              </div>
+            );
+          })}
+        </Dishes>
       </Wrap>
       <Footer />
     </>
