@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
   @media only screen and (min-width: 650px) {
     gap: 35px;
     height: 30vh;

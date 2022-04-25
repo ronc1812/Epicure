@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import RestaurantCard from "../components/RestaurantCard";
 import getRestaurants from "../services/getRestaurants";
 import restaurantType from "../types/restaurantType";
 const Headline = styled.header`
@@ -13,9 +14,9 @@ const Headline = styled.header`
     visibility: hidden;
   }
 `;
-const Picture = styled.img`
-  padding: 2% 2%;
-  width: 45%;
+const Picture = styled.div`
+  padding: 1%;
+  height: 280px;
   @media only screen and (min-width: 650px) {
     width: 25%;
   }
@@ -52,7 +53,7 @@ const Div = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  margin-top: -20px;
 `;
 const StyledButton = styled.button`
   border: 0;
@@ -110,12 +111,13 @@ const RestaurantsPage = () => {
         <Div>
           {restaurants?.map((restaurant) => {
             return (
-              <Picture
-                key={restaurant.name}
-                src={restaurant.picture}
-                alt={restaurant.name}
-                onClick={() => navigator(`/restaurants/${restaurant.name}`)}
-              />
+              <Picture>
+                <RestaurantCard
+                  key={restaurant.name}
+                  data={restaurant}
+                  onClick={() => navigator(`/restaurants/${restaurant.name}`)}
+                />
+              </Picture>
             );
           })}
         </Div>

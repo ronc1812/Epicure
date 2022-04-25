@@ -4,10 +4,12 @@ import Dish from "./Dish";
 import DishType from "../types/dishType";
 import styled from "styled-components";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import DishCard from "./DishCard";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const Headline = styled.header`
   font-size: 13px;
   font-family: HelveticaNeue-thin;
+  margin-left: 5%;
   @media only screen and (min-width: 650px) {
     font-size: 30px;
     text-align: center;
