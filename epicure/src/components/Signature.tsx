@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 const Wrap = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 10px;
   @media only screen and (min-width: 650px) {
     gap: 30px;
   }

@@ -130,7 +130,7 @@ const Header = () => {
           </div>
         )}
         <Wrap>
-          <SearchBar />
+          {window.innerWidth > 650 ? <SearchBar /> : <></>}
           {window.innerWidth <= 600 ? (
             <Icon src={searchIcon} alt="search" />
           ) : (

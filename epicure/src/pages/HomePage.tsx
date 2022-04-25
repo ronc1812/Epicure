@@ -37,6 +37,8 @@ const SearchSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 10px;
   @media only screen and (min-width: 650px) {
     background-color: rgba(255, 255, 255, 0.88);
     width: 50vw;
@@ -87,7 +89,6 @@ const HomePage = () => {
   return (
     <>
       <Header />
-
       <BackImg>
         <header>
           <SearchSection>

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import getChefOfTheWeek from "../services/getChefOfTheWeek";
+import getPopularRes from "../services/getPopularRes";
+import RestaurantType from "../types/restaurantType";
 
 const Headline = styled.header`
   font-size: 13px;
@@ -41,13 +44,18 @@ const ChefOfTheWeek = () => {
     picture: string;
     info: string;
   }>();
+  const [popular, setPopular] = useState<RestaurantType[]>([]);
+  const navigator = useNavigate();
   useEffect(() => {
     function getChef() {
       const fetchChef = getChefOfTheWeek();
       setChef(fetchChef);
+      const restaurants = getPopularRes();
+      setPopular(restaurants);
     }
     getChef();
   }, []);
+
   return (
     <Wrapper>
       <Headline>CHEF OF THE WEEK</Headline>
