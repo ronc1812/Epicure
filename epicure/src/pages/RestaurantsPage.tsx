@@ -15,8 +15,7 @@ const Headline = styled.header`
   }
 `;
 const Picture = styled.div`
-  padding: 1%;
-  height: 280px;
+  padding: 0 1.8px;
   @media only screen and (min-width: 650px) {
     width: 25%;
   }
@@ -42,18 +41,14 @@ const Wrapper = styled.div`
 `;
 
 const FooterDiv = styled.div`
-  position: fixed;
   bottom: 10px;
   width: 100%;
-  @media only screen and (min-width: 650px) {
-    position: relative;
-  }
 `;
 const Div = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: -20px;
+  justify-content: flex-start;
+  margin-top: -10px;
 `;
 const StyledButton = styled.button`
   border: 0;
@@ -111,7 +106,7 @@ const RestaurantsPage = () => {
         <Div>
           {restaurants?.map((restaurant) => {
             return (
-              <Picture>
+              <Picture key={restaurant.name}>
                 <RestaurantCard
                   key={restaurant.name}
                   data={restaurant}

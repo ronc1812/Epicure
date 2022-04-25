@@ -3,7 +3,7 @@ import redFarm from "../images/red-farm.jpg";
 import taLaMaKo from "../images/ta-la-ma-ko.jpg";
 const dishes = [
   {
-    name: "pad ki mao",
+    name: "Pad Ki Mao",
     id: 1,
     ingredients: [
       "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
@@ -14,18 +14,18 @@ const dishes = [
     changes: ["tofu", "chicken"],
   },
   {
-    name: "red farm",
+    name: "Red Farm",
     id: 2,
     ingredients: [
       "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass Magic Chili Brown Coconut",
     ],
     picture: redFarm,
     price: 64,
-    sideOptions: ["bread"],
+    sideOptions: ["bread", "rice"],
     changes: ["no jalapeno", "no teriyaki"],
   },
   {
-    name: " ta la ma  ko",
+    name: " Ta La Ma  Ko",
     id: 3,
     ingredients: ["Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori"],
     picture: taLaMaKo,
