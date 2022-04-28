@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 const ChooseSide: React.FC<{ sides: string[] }> = (props) => {
   return (
-    <div>
+    <div style={{ marginTop: "10%" }}>
       <Header>Choose a side</Header>
       <Wrapper>
         {props.sides.map((side) => {

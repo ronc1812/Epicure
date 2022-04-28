@@ -7,6 +7,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-width: 650px) {
+    width: 30vw;
+    height: 45vh;
+  }
 `;
 
 const Info = styled.div`
@@ -17,23 +21,25 @@ const Info = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-width: 650px) {
+    height: 20vh;
+  }
 `;
 const Picture = styled.img`
   width: 100%;
   height: 18vh;
+  @media only screen and (min-width: 650px) {
+    height: 25vh;
+  }
 `;
 
 const Headline = styled.header`
   font-size: 25px;
   font-family: HelveticaNeue;
-  @media only screen and (min-width: 650px) {
-  }
 `;
 const Label = styled.label`
   font-size: 20px;
   font-family: HelveticaNeue-thin;
-  @media only screen and (min-width: 650px) {
-  }
 `;
 const RestaurantCard: React.FC<{
   data: RestaurantType;

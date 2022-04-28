@@ -15,10 +15,19 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 5px;
+  @media only screen and (min-width: 650px) {
+    width: 60%;
+    gap: 15px;
+  }
 `;
 const Dishes = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media only screen and (min-width: 650px) {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 30px;
+  }
 `;
 const Navbar = styled.div`
   display: flex;
@@ -31,6 +40,7 @@ const Navbar = styled.div`
   @media only screen and (min-width: 650px) {
     width: 40%;
     box-shadow: 0px 0px 0px 0px;
+    gap: 50px;
   }
 `;
 const StyledButton = styled.button`
@@ -41,6 +51,9 @@ const StyledButton = styled.button`
   :hover {
     border-bottom: 1px solid orange;
   }
+  @media only screen and (min-width: 650px) {
+    font-size: 25px;
+  }
 `;
 const Wrap = styled.div`
   @media only screen and (min-width: 650px) {
@@ -48,27 +61,44 @@ const Wrap = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 10px;
+  }
+`;
+const Div = styled.div`
+  width: 50%;
+  @media only screen and (min-width: 650px) {
+    width: 45%;
   }
 `;
 const Picture = styled.img`
   width: 100%;
   height: 35vh;
   @media only screen and (min-width: 650px) {
-    width: 60%;
+    width: 100%;
+    height: 50vh;
   }
 `;
 
 const Name = styled.header`
   font-size: 35px;
   font-family: HelveticaNeue;
+  @media only screen and (min-width: 650px) {
+    font-size: 50px;
+  }
 `;
 const Chef = styled(Name)`
   font-size: 24px;
   font-family: HelveticaNeue-Thin;
+  @media only screen and (min-width: 650px) {
+    font-size: 30px;
+  }
 `;
 const Open = styled(Name)`
   font-family: HelveticaNeue-thin;
   font-size: 12px;
+  @media only screen and (min-width: 650px) {
+    font-size: 18px;
+  }
 `;
 const Restaurant = () => {
   const { restaurant } = useParams<string>();
@@ -130,9 +160,9 @@ const Restaurant = () => {
         <Dishes>
           {current?.map((dish) => {
             return (
-              <div style={{ width: "50%" }} key={dish.id}>
+              <Div key={dish.id}>
                 <Dish dish={dish} key={dish.id} />
-              </div>
+              </Div>
             );
           })}
         </Dishes>

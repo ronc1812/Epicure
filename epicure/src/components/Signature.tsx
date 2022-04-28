@@ -21,6 +21,7 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     gap: 10px;
+    margin-top: 10vh;
   }
 `;
 const Wrap = styled.div`
@@ -28,7 +29,7 @@ const Wrap = styled.div`
   flex-direction: row;
   gap: 10px;
   @media only screen and (min-width: 650px) {
-    gap: 30px;
+    gap: 11px;
   }
 `;
 const SignatureDish = () => {

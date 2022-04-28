@@ -18,8 +18,12 @@ const Navbar = styled.div`
   background-color: white;
   gap: 20%;
   @media only screen and (min-width: 650px) {
-    gap: 45%;
+    gap: 1%;
   }
+`;
+const Search = styled.div`
+  width: -webkit-fill-available;
+  justify-self: flex-end;
 `;
 const MobileBar = styled.div`
   visibility: visible;
@@ -32,17 +36,18 @@ const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10%;
+  @media only screen and (min-width: 650px) {
+    gap: 5%;
+    width: 50%;
+    justify-content: flex-end;
+  }
 `;
 const DesktopBar = styled.div`
-  visibility: hidden;
-  @media only screen and (min-width: 650px) {
-    visibility: visible;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 `;
 const Logo = styled.img`
   height: 4vh;
@@ -122,15 +127,24 @@ const Header = () => {
         ) : (
           <div>
             <DesktopBar>
-              <Logo src={logo} alt="logo" />
-              <ButtonEpicure onClick={navigatorHome}>EPICURE</ButtonEpicure>
+              <div style={{ display: "flex" }}>
+                <Logo src={logo} alt="logo" />
+                <ButtonEpicure onClick={navigatorHome}>EPICURE</ButtonEpicure>
+              </div>
               <Button onClick={navigatorRes}>Restaurants</Button>
               <Button onClick={navigatorChefs}>Chefs</Button>
             </DesktopBar>
           </div>
         )}
         <Wrap>
-          {window.innerWidth > 650 ? <SearchBar /> : <></>}
+          {window.innerWidth >= 650 ? (
+            <Search>
+              <SearchBar header={false} />
+            </Search>
+          ) : (
+            <></>
+          )}
+
           {window.innerWidth <= 600 ? (
             <Icon src={searchIcon} alt="search" />
           ) : (

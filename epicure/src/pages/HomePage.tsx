@@ -41,8 +41,8 @@ const SearchSection = styled.div`
   gap: 10px;
   @media only screen and (min-width: 650px) {
     background-color: rgba(255, 255, 255, 0.88);
-    width: 50vw;
-    height: 25vh;
+    width: 100%;
+    height: 35vh;
   }
 `;
 const Headline = styled.div`
@@ -50,9 +50,9 @@ const Headline = styled.div`
   text-align: center;
   font-family: HelveticaNeue-thin;
   @media only screen and (min-width: 650px) {
-    font-size: 35px;
+    font-size: 45px;
     text-align: justify;
-    width: 54.5%;
+    width: 50%;
   }
 `;
 
@@ -95,7 +95,7 @@ const HomePage = () => {
             <Headline>
               Epicure works with the top chef restaurants in Tel Aviv
             </Headline>
-            <SearchBar />
+            <SearchBar header={true} />
           </SearchSection>
         </header>
       </BackImg>

@@ -17,7 +17,7 @@ const Headline = styled.header`
 const Picture = styled.div`
   padding: 0 1.8px;
   @media only screen and (min-width: 650px) {
-    width: 25%;
+    width: 30%;
   }
 `;
 
@@ -49,6 +49,11 @@ const Div = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: -10px;
+  @media only screen and (min-width: 650px) {
+    gap: 40px;
+    justify-content: center;
+    margin-top: 1px;
+  }
 `;
 const StyledButton = styled.button`
   border: 0;

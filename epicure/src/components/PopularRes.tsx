@@ -43,7 +43,7 @@ const All = styled.button`
     font-family: HelveticaNeue-thin;
     font-size: 25px;
     align-self: flex-end;
-    margin-right: 14%;
+    margin-right: 2%;
   }
 `;
 

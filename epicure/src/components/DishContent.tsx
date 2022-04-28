@@ -8,6 +8,9 @@ import Quantity from "./Quantity";
 const Close = styled.a`
   color: grey;
   font-size: 30px;
+  @media only screen and (min-width: 650px) {
+    color: white;
+  }
 `;
 
 const Navbar = styled.div`
@@ -15,10 +18,24 @@ const Navbar = styled.div`
   width: 100%;
   height: 40px;
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.05);
+  @media only screen and (min-width: 650px) {
+    background-color: rgba(0, 0, 3, 0.5);
+  }
+`;
+const Div = styled.div`
+  @media only screen and (min-width: 650px) {
+    background-color: white;
+    width: 30%;
+    margin: 0 35%;
+    padding: -10% 0;
+  }
 `;
 const Picture = styled.img`
   width: 100%;
   height: 30vh;
+  @media only screen and (min-width: 650px) {
+    height: 20vh;
+  }
 `;
 const Button = styled.button`
   width: 50%;
@@ -30,13 +47,12 @@ const Button = styled.button`
   font-family: HelveticaNeue-thin;
 `;
 const FooterDiv = styled.div`
-  @media (min-width: 769px) {
+  visibility: visible;
+  @media only screen and (min-width: 650px) {
     visibility: hidden;
   }
-  @media (max-width: 768px) {
-    visibility: visible;
-  }
 `;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,6 +67,9 @@ const Info = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (min-width: 650px) {
+    height: 15vh;
+  }
 `;
 const Container = styled.div`
   display: flex;
@@ -63,6 +82,7 @@ const Headline = styled.header`
   font-size: 30px;
   font-family: HelveticaNeue;
   @media only screen and (min-width: 650px) {
+    font-size: 20px;
   }
 `;
 const Label = styled.label`
@@ -71,6 +91,7 @@ const Label = styled.label`
   text-align: center;
   margin: 0px 20%;
   @media only screen and (min-width: 650px) {
+    font-size: 12px;
   }
 `;
 const Price = styled.label`
@@ -80,6 +101,7 @@ const Price = styled.label`
   display: flex;
   align-items: center;
   @media only screen and (min-width: 650px) {
+    font-size: 15px;
   }
 `;
 const DishContent: React.FC<{ dish: DishType; close: () => void }> = (
@@ -87,7 +109,7 @@ const DishContent: React.FC<{ dish: DishType; close: () => void }> = (
 ) => {
   const dish = props.dish;
   return (
-    <div>
+    <Div>
       <Navbar>
         <Close onClick={props.close}>&times;</Close>
       </Navbar>
@@ -99,17 +121,18 @@ const DishContent: React.FC<{ dish: DishType; close: () => void }> = (
           <Price>{dish.price}</Price>
         </Container>
       </Info>
-
-      <ChooseSide sides={dish.sideOptions} />
-      <Changes changes={dish.changes} />
-      <Quantity />
+      <div>
+        <ChooseSide sides={dish.sideOptions} />
+        <Changes changes={dish.changes} />
+        <Quantity />
+      </div>
       <Wrapper>
         <Button>Add To Bag</Button>
       </Wrapper>
       <FooterDiv>
         <Footer />
       </FooterDiv>
-    </div>
+    </Div>
   );
 };
 

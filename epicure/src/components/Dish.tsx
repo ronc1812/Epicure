@@ -12,6 +12,9 @@ const Wrapper = styled.div`
   background-color: #ffffff;
   width: 100%;
   height: 500vh;
+  @media (min-width: 769px) {
+    background-color: rgba(0, 0, 3, 0.5);
+  }
 `;
 
 const Dish: React.FC<{ dish: DishType }> = (props) => {
@@ -25,6 +28,7 @@ const Dish: React.FC<{ dish: DishType }> = (props) => {
               <DishCard data={props.dish} />
             </Button>
           }
+          contentStyle={{ width: "100%" }}
         >
           {(close: () => void) => (
             <Wrapper>

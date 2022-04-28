@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0px;
+  @media only screen and (min-width: 650px) {
+    width: 25vw;
+    height: 45vh;
+  }
 `;
 
 const Info = styled.div`
@@ -15,6 +19,9 @@ const Info = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (min-width: 650px) {
+    height: 25vh;
+  }
 `;
 const Container = styled.div`
   display: flex;
@@ -26,6 +33,9 @@ const Container = styled.div`
 const Picture = styled.img`
   width: 100%;
   height: 15vh;
+  @media only screen and (min-width: 650px) {
+    height: 20vh;
+  }
 `;
 
 const Headline = styled.header`
@@ -33,6 +43,8 @@ const Headline = styled.header`
   font-family: HelveticaNeue;
   margin-top: 20%;
   @media only screen and (min-width: 650px) {
+    margin-top: 10%;
+    font-size: 20px;
   }
 `;
 const Label = styled.label`
@@ -40,6 +52,7 @@ const Label = styled.label`
   font-family: HelveticaNeue-thin;
   text-align: center;
   @media only screen and (min-width: 650px) {
+    font-size: 20px;
   }
 `;
 const Price = styled.label`
