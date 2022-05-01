@@ -1,4 +1,4 @@
-import yossi from "../images/yossi.jpg";
+import yossi from "../components/images/yossi.jpg";
 const getChefOfTheWeek = () => {
   return {
     name: "Yossi Shitrit",

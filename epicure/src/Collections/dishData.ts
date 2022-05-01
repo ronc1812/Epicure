@@ -1,6 +1,6 @@
-import padKi from "../images/pad-ki-mao.jpg";
-import redFarm from "../images/red-farm.jpg";
-import taLaMaKo from "../images/ta-la-ma-ko.jpg";
+import padKi from "../components/images/pad-ki-mao.jpg";
+import redFarm from "../components/images/red-farm.jpg";
+import taLaMaKo from "../components/images/ta-la-ma-ko.jpg";
 const dishes = [
   {
     name: "Pad Ki Mao",

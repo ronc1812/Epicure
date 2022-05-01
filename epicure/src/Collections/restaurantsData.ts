@@ -1,9 +1,9 @@
-import claroPic from "../images/claro.jpg";
-import kabKemPic from "../images/kab-kem.jpg";
-import messaPic from "../images/messa.jpg";
-import nithanPic from "../images/nithan-thai.jpg";
-import tigerPic from "../images/tiger-lilly.jpg";
-import yapanPic from "../images/ya-pan.jpg";
+import claroPic from "../components/images/claro.jpg";
+import kabKemPic from "../components/images/kab-kem.jpg";
+import messaPic from "../components/images/messa.jpg";
+import nithanPic from "../components/images/nithan-thai.jpg";
+import tigerPic from "../components/images/tiger-lilly.jpg";
+import yapanPic from "../components/images/ya-pan.jpg";
 
 const restaurants = [
   {
