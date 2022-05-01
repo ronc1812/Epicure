@@ -15,15 +15,16 @@ const Wrapper = styled.div`
   margin-left: 5%;
 `;
 const Changes: React.FC<{ changes: string[] }> = (props) => {
+  const { changes } = props;
   return (
     <div>
       <Header>Changes</Header>
       <Wrapper>
-        {props.changes.map((change) => {
+        {changes.map((change) => {
           return (
             <div key={change}>
               <input type="checkbox" value={change} key={change} />
-              {""} {change}
+              {change}
             </div>
           );
         })}

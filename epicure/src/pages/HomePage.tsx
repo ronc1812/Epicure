@@ -79,6 +79,7 @@ const ResButton = styled(ChefButton)`
   width: 30%;
 `;
 const HomePage = () => {
+  const isMobile = window.innerWidth <= 600;
   const navigator = useNavigate();
   const navigatorRes = () => {
     navigator("/restaurants");
@@ -99,13 +100,11 @@ const HomePage = () => {
           </SearchSection>
         </header>
       </BackImg>
-      {window.innerWidth <= 600 ? (
+      {isMobile && (
         <MobileButtons>
           <ChefButton onClick={navigatorChefs}>CHEFS</ChefButton>
           <ResButton onClick={navigatorRes}>RESTAURANTS</ResButton>
         </MobileButtons>
-      ) : (
-        <></>
       )}
       <PopularRes />
       <SignatureDish />

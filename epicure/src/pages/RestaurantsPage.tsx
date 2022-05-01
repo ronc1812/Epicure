@@ -72,7 +72,7 @@ const RestaurantsPage = () => {
   const [restaurants, setRestaurants] = useState<restaurantType[] | null>(null);
   const [all, setAll] = useState<restaurantType[] | null>(null);
   useEffect(() => {
-    async function getAllRes() {
+    function getAllRes() {
       const fetchRes = getRestaurants();
       setRestaurants(fetchRes);
       setAll(fetchRes);

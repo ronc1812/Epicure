@@ -13,12 +13,16 @@ const Wrapper = styled.div`
   font-family: HelveticaNeue-thin;
   font-size: 15px;
 `;
+const StyledDiv = styled.div`
+  margin-top: 10%;
+`;
 const ChooseSide: React.FC<{ sides: string[] }> = (props) => {
+  const { sides } = props;
   return (
-    <div style={{ marginTop: "10%" }}>
+    <StyledDiv>
       <Header>Choose a side</Header>
       <Wrapper>
-        {props.sides.map((side) => {
+        {sides.map((side) => {
           return (
             <div key={side}>
               <input type="radio" value={side} key={side} placeholder={side} />
@@ -27,7 +31,7 @@ const ChooseSide: React.FC<{ sides: string[] }> = (props) => {
           );
         })}
       </Wrapper>
-    </div>
+    </StyledDiv>
   );
 };
 export default ChooseSide;

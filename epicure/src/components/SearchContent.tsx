@@ -36,26 +36,22 @@ const SearchContent: React.FC<{ query: string }> = (props) => {
   }, []);
   return (
     <Wrapper>
-      {info[0].length !== 0 ? (
+      {info[0].length !== 0 && (
         <Result>
           <Header>Restaurants :</Header>
           {info[0]?.map((res) => {
             return <Label key={res}>{res}</Label>;
           })}
         </Result>
-      ) : (
-        <></>
       )}
 
-      {info[1].length !== 0 ? (
+      {info[1].length !== 0 && (
         <Result>
           <Header>Chefs : </Header>
           {info[1]?.map((chef) => {
             return <Label key={chef}>{chef}</Label>;
           })}
         </Result>
-      ) : (
-        <></>
       )}
     </Wrapper>
   );

@@ -17,25 +17,28 @@ const Wrapper = styled.div`
   }
 `;
 
+const StyledPopup = styled(Popup)`
+  width: 100%;
+`;
 const Dish: React.FC<{ dish: DishType }> = (props) => {
+  const { dish } = props;
   return (
     <>
       <div>
-        <Popup
+        <StyledPopup
           modal={true}
           trigger={
             <Button>
               <DishCard data={props.dish} />
             </Button>
           }
-          contentStyle={{ width: "100%" }}
         >
           {(close: () => void) => (
             <Wrapper>
-              <DishContent dish={props.dish} close={close} />
+              <DishContent dish={dish} close={close} />
             </Wrapper>
           )}
-        </Popup>
+        </StyledPopup>
       </div>
     </>
   );

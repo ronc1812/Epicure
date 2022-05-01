@@ -107,11 +107,12 @@ const Price = styled.label`
 const DishContent: React.FC<{ dish: DishType; close: () => void }> = (
   props
 ) => {
-  const dish = props.dish;
+  const { dish } = props;
+  const { close } = props;
   return (
     <Div>
       <Navbar>
-        <Close onClick={props.close}>&times;</Close>
+        <Close onClick={close}>&times;</Close>
       </Navbar>
       <Picture src={dish.picture} alt={dish.name} />
       <Info>

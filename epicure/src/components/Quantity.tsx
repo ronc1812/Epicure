@@ -31,7 +31,7 @@ const Quantity = () => {
     <Wrapper>
       <Header>Quantity</Header>
       <Main>
-        {amount > 1 ? <button onClick={decrease}>-</button> : <></>}
+        {amount > 1 && <button onClick={decrease}>-</button>}
         <label>{amount}</label>
         <button onClick={increase}>+</button>
       </Main>

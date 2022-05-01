@@ -63,9 +63,19 @@ const HeaderInput = styled(Input)`
     width: 100%;
   }
 `;
-
+const StyledDiv = styled.div`
+  width: "35vw";
+  display: "flex";
+  justify-content: "flex-start";
+`;
+const Div = styled.div`
+  width: "23vw";
+  display: "flex";
+  justify-content: "flex-start";
+`;
 const Picture = styled.img``;
 const SearchBar: React.FC<{ header: boolean }> = (props) => {
+  const { header } = props;
   const [input, setInput] = useState<string>("");
   const [visible, setVisible] = useState<boolean>(false);
   const search = async (event: any) => {
@@ -77,7 +87,7 @@ const SearchBar: React.FC<{ header: boolean }> = (props) => {
     }
   };
 
-  return props.header ? (
+  return header ? (
     <Wrap>
       <Wrapper>
         <Picture src={searchIcon} alt="" />
@@ -87,15 +97,10 @@ const SearchBar: React.FC<{ header: boolean }> = (props) => {
           placeholder="Search for restaurant cuisine, chef"
         />
       </Wrapper>
-      <div
-        style={{ width: "35vw", display: "flex", justifyContent: "flex-start" }}
-      >
-        {visible && <SearchContent query={input} />}
-      </div>
+      <StyledDiv>{visible && <SearchContent query={input} />}</StyledDiv>
     </Wrap>
   ) : (
     <>
-      {" "}
       <HeaderSearch>
         <Search>
           <HeaderInput
@@ -105,15 +110,7 @@ const SearchBar: React.FC<{ header: boolean }> = (props) => {
           />
           <Picture src={searchIcon} alt="" />
         </Search>
-        <div
-          style={{
-            width: "23vw",
-            display: "flex",
-            justifyContent: "flex-start",
-          }}
-        >
-          {visible && <SearchContent query={input} />}
-        </div>
+        <Div>{visible && <SearchContent query={input} />}</Div>
       </HeaderSearch>
     </>
   );

@@ -92,7 +92,12 @@ const ButtonEpicure = styled.button`
   border: 0;
   background-color: white;
 `;
+
+const StyledDiv = styled.div`
+  display: flex;
+`;
 const Header = () => {
+  const isMobile = window.innerWidth <= 600;
   const navigator = useNavigate();
   const navigatorHome = () => {
     navigator("/");
@@ -106,7 +111,7 @@ const Header = () => {
   return (
     <>
       <Navbar>
-        {window.innerWidth <= 600 ? (
+        {isMobile ? (
           <MobileBar>
             <Popup
               modal
@@ -127,29 +132,23 @@ const Header = () => {
         ) : (
           <div>
             <DesktopBar>
-              <div style={{ display: "flex" }}>
+              <StyledDiv>
                 <Logo src={logo} alt="logo" />
                 <ButtonEpicure onClick={navigatorHome}>EPICURE</ButtonEpicure>
-              </div>
+              </StyledDiv>
               <Button onClick={navigatorRes}>Restaurants</Button>
               <Button onClick={navigatorChefs}>Chefs</Button>
             </DesktopBar>
           </div>
         )}
         <Wrap>
-          {window.innerWidth >= 650 ? (
+          {!isMobile && (
             <Search>
               <SearchBar header={false} />
             </Search>
-          ) : (
-            <></>
           )}
 
-          {window.innerWidth <= 600 ? (
-            <Icon src={searchIcon} alt="search" />
-          ) : (
-            <></>
-          )}
+          {isMobile && <Icon src={searchIcon} alt="search" />}
           <Icon src={userIcon} alt="user-icon" />
           <Icon src={bagIcon} alt="cart" />
         </Wrap>

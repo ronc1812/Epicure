@@ -51,7 +51,7 @@ const PopularRes = () => {
   const navigator = useNavigate();
   const [popular, setPopular] = useState<RestaurantType[]>([]);
   useEffect(() => {
-    async function getPopular() {
+    function getPopular() {
       const restaurants = getPopularRes();
       setPopular(restaurants);
     }
@@ -60,10 +60,7 @@ const PopularRes = () => {
   const restaurantsHandler = () => {
     navigator("/restaurants");
   };
-  function onWheel(
-    apiObj: scrollVisibilityApiType,
-    ev: React.WheelEvent
-  ): void {
+  const onWheel = (apiObj: scrollVisibilityApiType, ev: React.WheelEvent) => {
     const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
 
     if (isThouchpad) {
@@ -76,7 +73,7 @@ const PopularRes = () => {
     } else if (ev.deltaY > 0) {
       apiObj.scrollPrev();
     }
-  }
+  };
   return (
     <Wrap>
       <Headline>THE POPULAR RESTAURANTS IN EPICURE :</Headline>

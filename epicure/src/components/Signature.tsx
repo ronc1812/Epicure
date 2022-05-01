@@ -42,10 +42,7 @@ const SignatureDish = () => {
     getDishes();
   }, []);
 
-  function onWheel(
-    apiObj: scrollVisibilityApiType,
-    ev: React.WheelEvent
-  ): void {
+  const onWheel = (apiObj: scrollVisibilityApiType, ev: React.WheelEvent) => {
     const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
 
     if (isThouchpad) {
@@ -58,7 +55,7 @@ const SignatureDish = () => {
     } else if (ev.deltaY > 0) {
       apiObj.scrollPrev();
     }
-  }
+  };
   return (
     <>
       <Wrapper>
