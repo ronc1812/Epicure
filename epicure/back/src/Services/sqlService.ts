@@ -30,7 +30,7 @@ export const Restaurant = sequelize.define(
     },
 
     restaurant_image: {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB,
       allowNull: true,
       defaultValue: "not defined!",
     },
