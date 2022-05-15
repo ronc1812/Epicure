@@ -5,7 +5,7 @@ const Wrapper = styled.div`
 `;
 
 const Result = styled.div`
-  width: 50%;
+  width: 55.5%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -13,7 +13,7 @@ const Result = styled.div`
   position: absolute;
   background-color: white;
   @media only screen and (min-width: 650px) {
-    width: inherit;
+    width: 23.4%;
   }
 `;
 const Header = styled.header`

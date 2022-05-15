@@ -22,33 +22,40 @@ import {
 } from "./style";
 const Restaurant = () => {
   const { restaurant } = useParams<string>();
-  const [breakfastMenu, setBreakfastMenu] = useState<DishType[]>();
-  const [lunchMenu, setLunchMenu] = useState<DishType[]>();
-  const [dinnerMenu, setDinnerMenu] = useState<DishType[]>();
+  const [breakfastMenu, setBreakfastMenu] = useState<DishType[]>([]);
+  const [lunchMenu, setLunchMenu] = useState<DishType[]>([]);
+  const [dinnerMenu, setDinnerMenu] = useState<DishType[]>([]);
   const [current, setCurrent] = useState<DishType[]>();
   const [picture, setPicture] = useState<string>("");
   const [res, setRes] = useState<RestaurantType>();
-  let breakfast: DishType[] = [];
-  let lunch: DishType[] = [];
-  let dinner: DishType[] = [];
+
   useEffect(() => {
-    function getInfo() {
-      const currentRes = getRestaurant(restaurant);
-      setRes(currentRes[0]);
-      currentRes[0]?.menu.breakfast.map((id) => {
-        return breakfast.push(getDishes(id));
+    async function getInfo() {
+      const currentRes: RestaurantType = await getRestaurant(restaurant);
+      setRes(currentRes);
+      const dishes: DishType[] = await getDishes(
+        currentRes.restaurant_menu.menu
+      );
+
+      dishes.forEach((dish) => {
+        if (dish.dish_type.breakfast) {
+          setBreakfastMenu((prevState) => {
+            return [...prevState, dish];
+          });
+        }
+        if (dish.dish_type.lunch) {
+          setLunchMenu((prevState) => {
+            return [...prevState, dish];
+          });
+        }
+        if (dish.dish_type.dinner) {
+          setDinnerMenu((prevState) => {
+            return [...prevState, dish];
+          });
+        }
       });
-      currentRes[0]?.menu.lunch.map((id) => {
-        return lunch.push(getDishes(id));
-      });
-      currentRes[0]?.menu.dinner.map((id) => {
-        return dinner.push(getDishes(id));
-      });
-      setBreakfastMenu(breakfast);
-      setLunchMenu(lunch);
-      setDinnerMenu(dinner);
-      setCurrent(breakfast);
-      setPicture(currentRes[0].picture);
+      setPicture(currentRes.restaurant_image);
+      setCurrent(dishes);
     }
     getInfo();
   }, []);
@@ -59,8 +66,8 @@ const Restaurant = () => {
       <Wrap>
         <Wrapper>
           <Picture src={picture} alt="" />
-          <Name>{res?.name}</Name>
-          <Chef>{res?.chef}</Chef>
+          <Name>{res?.restaurant_name}</Name>
+          <Chef>{res?.restaurant_chef}</Chef>
           <Open>
             <img src={clock} alt="" /> Open Now
           </Open>
@@ -77,15 +84,17 @@ const Restaurant = () => {
           </StyledButton>
         </Navbar>
         <br />
-        <Dishes>
-          {current?.map((dish) => {
-            return (
-              <Div key={dish.id}>
-                <Dish dish={dish} key={dish.id} />
-              </Div>
-            );
-          })}
-        </Dishes>
+        {current && (
+          <Dishes>
+            {current.map((dish) => {
+              return (
+                <Div key={dish.dish_id}>
+                  <Dish dish={dish} key={dish.dish_id} />
+                </Div>
+              );
+            })}
+          </Dishes>
+        )}
       </Wrap>
       <Footer />
     </>

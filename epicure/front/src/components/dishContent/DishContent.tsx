@@ -22,23 +22,25 @@ const DishContent: React.FC<{ dish: DishType; close: () => void }> = (
   props
 ) => {
   const { dish } = props;
+
   const { close } = props;
   return (
     <Div>
       <Navbar>
         <Close onClick={close}>&times;</Close>
       </Navbar>
-      <Picture src={dish.picture} alt={dish.name} />
+      <Picture src={dish.dish_image.toString()} alt={dish.dish_name} />
       <Info>
         <Container>
-          <Headline>{dish.name}</Headline>
-          <Label>{dish.ingredients[0]}</Label>
-          <Price>{dish.price}</Price>
+          <Headline>{dish.dish_name}</Headline>
+          <Label>{dish.dish_ingredients.ingredients.join()}</Label>
+          <Price>{dish.dish_price}</Price>
         </Container>
       </Info>
       <div>
-        <ChooseSide sides={dish.sideOptions} />
-        <Changes changes={dish.changes} />
+        {console.log(dish.dish_options)}
+        <ChooseSide sides={dish.dish_options.option} />
+        <Changes changes={dish.dish_changes.changes} />
         <Quantity />
       </div>
       <Wrapper>

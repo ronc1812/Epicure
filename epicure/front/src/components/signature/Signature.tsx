@@ -9,8 +9,8 @@ type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const SignatureDish = () => {
   const [dishes, setDishes] = useState<DishType[]>([]);
   useEffect(() => {
-    function getDishes() {
-      const fetchDishes = getSignature();
+    async function getDishes() {
+      const fetchDishes: DishType[] = await getSignature();
       setDishes(fetchDishes);
     }
     getDishes();
@@ -38,7 +38,7 @@ const SignatureDish = () => {
         <ScrollMenu onWheel={onWheel}>
           <Wrap>
             {dishes.map((dish) => {
-              return <Dish dish={dish} key={dish.name} />;
+              return <Dish dish={dish} key={dish.dish_name} />;
             })}
           </Wrap>
         </ScrollMenu>

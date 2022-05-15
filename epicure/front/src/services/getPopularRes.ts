@@ -1,6 +1,10 @@
-import restaurants from "../Collections/restaurantsData";
-const getPopularRes = () => {
-  const popular = [restaurants[0], restaurants[1], restaurants[2]];
-  return popular;
+import axios from "axios";
+import RestaurantType from "../types/restaurantType";
+const getPopularRes = async () => {
+  const restaurants = await axios.get(
+    "http://localhost:8080/restaurants/getPopular"
+  );
+
+  return restaurants.data;
 };
 export default getPopularRes;

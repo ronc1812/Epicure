@@ -5,12 +5,16 @@ const RestaurantCard: React.FC<{
   onClick: () => void;
 }> = (props) => {
   const restaurant = props.data;
+
   return (
     <Wrapper onClick={props.onClick}>
-      <Picture src={restaurant.picture} alt={restaurant.name} />
+      <Picture
+        src={restaurant.restaurant_image}
+        alt={restaurant.restaurant_name}
+      />
       <Info>
-        <Headline>{restaurant.name}</Headline>
-        <Label>{restaurant.chef}</Label>
+        <Headline>{restaurant.restaurant_name}</Headline>
+        <Label>{restaurant.restaurant_chef}</Label>
       </Info>
     </Wrapper>
   );

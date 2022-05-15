@@ -30,7 +30,7 @@ export const Restaurant = sequelize.define(
     },
 
     restaurant_image: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: true,
       defaultValue: "not defined!",
     },
@@ -47,6 +47,10 @@ export const Restaurant = sequelize.define(
 
     restaurant_menu: {
       type: DataTypes.JSON,
+      allowNull: true,
+    },
+    popular: {
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
   },
@@ -70,7 +74,7 @@ export const Dishes = sequelize.define(
       allowNull: true,
     },
     dish_image: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: true,
       defaultValue: "not defined!",
     },
@@ -79,11 +83,11 @@ export const Dishes = sequelize.define(
       allowNull: false,
     },
     dish_options: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: false,
     },
     dish_changes: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: false,
     },
     dish_type: {

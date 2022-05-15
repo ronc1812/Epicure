@@ -11,8 +11,8 @@ const PopularRes = () => {
   const navigator = useNavigate();
   const [popular, setPopular] = useState<RestaurantType[]>([]);
   useEffect(() => {
-    function getPopular() {
-      const restaurants = getPopularRes();
+    async function getPopular() {
+      const restaurants = await getPopularRes();
       setPopular(restaurants);
     }
     getPopular();
@@ -44,7 +44,9 @@ const PopularRes = () => {
               <RestaurantCard
                 data={restaurant}
                 key={popular.indexOf(restaurant)}
-                onClick={() => navigator(`/restaurants/${restaurant.name}`)}
+                onClick={() =>
+                  navigator(`/restaurants/${restaurant.restaurant_name}`)
+                }
               />
             );
           })}

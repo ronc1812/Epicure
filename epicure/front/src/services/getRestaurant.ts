@@ -1,8 +1,10 @@
-import restaurants from "../Collections/restaurantsData";
-const getRestaurant = (name: string | undefined) => {
-  const restaurant = restaurants.filter((restaurant) => {
-    return restaurant.name === name;
-  });
-  return restaurant;
+import axios from "axios";
+
+const getRestaurant = async (name: string | undefined) => {
+  const restaurant = await axios.get(
+    `http://localhost:8080/restaurants/getByName/${name}`
+  );
+
+  return restaurant.data;
 };
 export default getRestaurant;
