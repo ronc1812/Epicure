@@ -4,6 +4,7 @@ const Button = styled.button`
   background-color: #ffffff;
   border: 0;
   padding: 8px 1px;
+  cursor: pointer;
 `;
 const Wrapper = styled.div`
   background-color: #ffffff;
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
   height: 500vh;
   @media (min-width: 769px) {
     background-color: rgba(0, 0, 3, 0.5);
+    width: 100vw;
   }
 `;
 

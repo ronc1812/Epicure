@@ -1,10 +1,13 @@
 import styled from "styled-components";
+interface IContent {
+  isHeaderSearchBar: boolean;
+}
 const Wrapper = styled.div`
   width: inherit;
   background-color: inherit;
 `;
 
-const Result = styled.div`
+const Result = styled.div<IContent>`
   width: 55.5%;
   display: flex;
   flex-direction: column;
@@ -13,7 +16,7 @@ const Result = styled.div`
   position: absolute;
   background-color: white;
   @media only screen and (min-width: 650px) {
-    width: 23.4%;
+    width: ${(props) => (props.isHeaderSearchBar ? "34.7%" : "23.4%")};
   }
 `;
 const Header = styled.header`

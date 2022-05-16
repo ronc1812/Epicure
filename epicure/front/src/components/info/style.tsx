@@ -10,7 +10,7 @@ const Headline = styled.header`
   }
 `;
 const Res = styled.img`
-  width: 70%;
+  width: 90%;
   background-color: var(#cdc9c9);
   @media only screen and (min-width: 650px) {
     width: 150%;
@@ -18,9 +18,10 @@ const Res = styled.img`
 `;
 const InfoOnSite = styled.div`
   font-size: 13px;
-  width: 90%;
+  width: 70%;
   font-family: HelveticaNeue-thin;
   text-align: center;
+  margin-top: 10px;
 
   @media only screen and (min-width: 650px) {
     width: 80%;
@@ -45,6 +46,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
   @media only screen and (min-width: 650px) {
     flex-direction: row;
   }
@@ -54,6 +56,7 @@ const InfoDiv = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 10px;
   @media only screen and (min-width: 650px) {
     width: 50%;
     gap: 10px;

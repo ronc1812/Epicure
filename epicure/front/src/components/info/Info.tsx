@@ -1,3 +1,4 @@
+import GetItOn from "../GetItOn";
 import logo from "../images/about-logo.png";
 import { InfoDiv, InfoOnSite, Wrapper, Picture, Res, Headline } from "./style";
 const Info = () => {
@@ -13,10 +14,12 @@ const Info = () => {
           sit amet, consectetur adipiscing elit. In a lacus vel justo fermentum
           bibendum no eu ipsum. Cras porta malesuada eros.
         </InfoOnSite>
+        {window.innerWidth >= 650 && <GetItOn />}
       </InfoDiv>
       <Picture>
         <Res src={logo} />
       </Picture>
+      {window.innerWidth < 650 && <GetItOn />}
     </Wrapper>
   );
 };

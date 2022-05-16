@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   gap: 0px;
   @media only screen and (min-width: 650px) {
     width: 25vw;
-    height: 45vh;
+    height: 65vh;
   }
 `;
 
@@ -19,7 +19,7 @@ const Info = styled.div`
   justify-content: space-between;
   align-items: center;
   @media only screen and (min-width: 650px) {
-    height: 25vh;
+    height: 45vh;
   }
 `;
 const Container = styled.div`
@@ -43,15 +43,17 @@ const Headline = styled.header`
   margin-top: 20%;
   @media only screen and (min-width: 650px) {
     margin-top: 10%;
-    font-size: 20px;
+    font-size: 25px;
   }
 `;
-const Label = styled.label`
+const Label = styled.div`
   font-size: 13px;
   font-family: HelveticaNeue-thin;
   text-align: center;
+  width: 80%;
   @media only screen and (min-width: 650px) {
-    font-size: 20px;
+    font-size: 19px;
+    width: 50%;
   }
 `;
 const Price = styled.label`
@@ -63,5 +65,24 @@ const Price = styled.label`
   @media only screen and (min-width: 650px) {
   }
 `;
-
-export { Picture, Price, Label, Headline, Container, Info, Wrapper };
+const Line = styled.div`
+  border-top: 1px solid black;
+  width: 10vw;
+`;
+const DishFooter = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: row;
+`;
+export {
+  Picture,
+  Price,
+  Label,
+  Headline,
+  Container,
+  Info,
+  Wrapper,
+  Line,
+  DishFooter,
+};

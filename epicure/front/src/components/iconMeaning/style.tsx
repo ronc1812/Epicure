@@ -30,12 +30,31 @@ const Icons = styled.div`
   margin-top: 10px;
   gap: 40px;
   @media only screen and (min-width: 650px) {
-    gap: 140px;
+    gap: 100px;
   }
+`;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 `;
 const Label = styled.label`
   font-size: 14px;
   font-family: HelveticaNeue-thin;
 `;
 
-export { Label, Wrapper, Icons, Headline };
+const Picture = styled.img`
+  width: 50%;
+  @media only screen and (min-width: 650px) {
+    width: 85%;
+  }
+`;
+const Veget = styled.img`
+  width: 45%;
+  @media only screen and (min-width: 650px) {
+    width: 75%;
+  }
+`;
+export { Label, Wrapper, Icons, Headline, Container, Picture, Veget };

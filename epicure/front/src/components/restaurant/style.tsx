@@ -38,6 +38,7 @@ const StyledButton = styled.button`
   background-color: white;
   font-size: 17px;
   font-family: HelveticaNeue-thin;
+  cursor: pointer;
   :hover {
     border-bottom: 1px solid orange;
   }

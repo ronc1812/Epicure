@@ -32,4 +32,13 @@ const Wrapper = styled.div`
   width: 80%;
   font-family: HelveticaNeue-thin;
 `;
-export { Headline, Picture, Info, Wrapper };
+
+const Dishes = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  @media only screen and (min-width: 650px) {
+    gap: 11px;
+  }
+`;
+export { Headline, Picture, Info, Wrapper, Dishes };
