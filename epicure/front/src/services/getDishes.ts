@@ -1,8 +1,16 @@
-import dishes from "../Collections/dishData";
-const getDishes = (id: number) => {
-  const wantedDishes = dishes.filter((dish) => {
-    return dish.id === id;
-  });
-  return wantedDishes[0];
+import axios from "axios";
+import DishType from "../types/dishType";
+
+const getDishes = async (restaurantMenu: string[]) => {
+  const dishes: DishType[] = await Promise.all(
+    restaurantMenu.map(async (name) => {
+      const { data } = await axios.get(
+        `http://localhost:8080/dishes/getByName/${name}`
+      );
+      return data;
+    })
+  );
+  return dishes;
 };
+
 export default getDishes;

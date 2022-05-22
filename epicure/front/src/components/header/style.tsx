@@ -68,6 +68,7 @@ const Modal = styled.div`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   @media only screen and (min-width: 650px) {
     font-size: 18px;
     font-family: HelveticaNeue-Thin;

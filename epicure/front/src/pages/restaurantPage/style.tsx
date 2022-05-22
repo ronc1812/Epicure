@@ -53,11 +53,13 @@ const StyledButton = styled.button`
   background-color: white;
   font-size: 13px;
   font-family: HelveticaNeue-thin;
+  cursor: pointer;
   :hover {
     font-family: HelveticaNeue;
   }
   @media only screen and (min-width: 650px) {
     font-size: 20px;
+    cursor: pointer;
   }
 `;
 

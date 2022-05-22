@@ -1,7 +1,15 @@
 import spicy from "../images/spicy-icon.png";
 import vegan from "../images/vegan-icon.png";
 import vegetarian from "../images/vegetarian.png";
-import { Label, Wrapper, Icons, Headline } from "./style";
+import {
+  Label,
+  Wrapper,
+  Icons,
+  Headline,
+  Container,
+  Picture,
+  Veget,
+} from "./style";
 
 const IconMeaning = () => {
   return (
@@ -9,21 +17,18 @@ const IconMeaning = () => {
       <Wrapper>
         <Headline>THE MEANING OF OUR ICONS:</Headline>
         <Icons>
-          <div>
-            <img src={spicy} alt="spicy" />
-            <br />
+          <Container>
+            <Picture src={spicy} alt="spicy" />
             <Label>SPICY</Label>
-          </div>
-          <div>
-            <img src={vegan} alt="vegan" />
-            <br />
+          </Container>
+          <Container>
+            <Picture src={vegan} alt="vegan" />
             <Label>VEGAN</Label>
-          </div>
-          <div>
-            <img src={vegetarian} alt="vegetarian" />
-            <br />
+          </Container>
+          <Container>
+            <Veget src={vegetarian} alt="vegetarian" />
             <Label>VEGETARIAN</Label>
-          </div>
+          </Container>
         </Icons>
       </Wrapper>
     </>

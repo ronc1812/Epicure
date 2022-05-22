@@ -19,8 +19,8 @@ const RestaurantsPage = () => {
   const [restaurants, setRestaurants] = useState<restaurantType[] | null>(null);
   const [all, setAll] = useState<restaurantType[] | null>(null);
   useEffect(() => {
-    function getAllRes() {
-      const fetchRes = getRestaurants();
+    async function getAllRes() {
+      const fetchRes = await getRestaurants();
       setRestaurants(fetchRes);
       setAll(fetchRes);
     }
@@ -28,7 +28,7 @@ const RestaurantsPage = () => {
   }, []);
   const popularHandler = () => {
     const popular = all?.filter((restaurant) => {
-      return restaurant.rating > 8;
+      return restaurant.popular === 1;
     });
     popular ? setRestaurants(popular) : setRestaurants(null);
   };
@@ -38,8 +38,8 @@ const RestaurantsPage = () => {
 
     const open = restaurants?.filter((restaurant) => {
       return (
-        restaurant.closingTime > time.getHours() &&
-        restaurant.openTime <= time.getHours()
+        restaurant.restaurant_close_time.getHours() > time.getHours() &&
+        restaurant.restaurant_close_time.getHours() <= time.getHours()
       );
     });
     open ? setRestaurants(open) : setRestaurants(null);
@@ -58,11 +58,13 @@ const RestaurantsPage = () => {
         <Div>
           {restaurants?.map((restaurant) => {
             return (
-              <Picture key={restaurant.name}>
+              <Picture key={restaurant.restaurant_name}>
                 <RestaurantCard
-                  key={restaurant.name}
+                  key={restaurant.restaurant_name}
                   data={restaurant}
-                  onClick={() => navigator(`/restaurants/${restaurant.name}`)}
+                  onClick={() =>
+                    navigator(`/restaurants/${restaurant.restaurant_name}`)
+                  }
                 />
               </Picture>
             );

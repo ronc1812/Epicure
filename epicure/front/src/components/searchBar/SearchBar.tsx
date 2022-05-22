@@ -35,7 +35,9 @@ const SearchBar: React.FC<{ header: boolean }> = (props) => {
           placeholder="Search for restaurant cuisine, chef"
         />
       </Wrapper>
-      <StyledDiv>{visible && <SearchContent query={input} />}</StyledDiv>
+      <StyledDiv>
+        {visible && <SearchContent query={input} header={header} />}
+      </StyledDiv>
     </Wrap>
   ) : (
     <>
@@ -48,7 +50,7 @@ const SearchBar: React.FC<{ header: boolean }> = (props) => {
           />
           <Picture src={searchIcon} alt="" />
         </Search>
-        <Div>{visible && <SearchContent query={input} />}</Div>
+        <Div>{visible && <SearchContent query={input} header={header} />}</Div>
       </HeaderSearch>
     </>
   );

@@ -61,12 +61,15 @@ const HeaderInput = styled(Input)`
   }
 `;
 const StyledDiv = styled.div`
-  width: "35vw";
+  width: 65%;
   display: "flex";
   justify-content: "flex-start";
+  @media only screen and (min-width: 650px) {
+    width: 50%;
+  }
 `;
 const Div = styled.div`
-  width: "23vw";
+  width: 45%;
   display: "flex";
   justify-content: "flex-start";
 `;
